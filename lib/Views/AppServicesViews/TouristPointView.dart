@@ -69,50 +69,65 @@ class _TouristPointViewState extends State<TouristPointView> {
                     itemBuilder: (context, index) {
                       final place = responseData.places[index];
                       return Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: Utils.size_06
-                        ),
-                        child: Card(
-                          shadowColor: Color(Utils.colorBlue),
-                          color: Color(Utils.primaryColor),
-                          elevation: Utils.size_10,
-                          child: Padding(
-                            padding: EdgeInsets.all(Utils.size_12),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CommonWidgets().verticalSize(10),
-                                Text(
-                                  place.name,
-                                  style: TextStyle(
-                                      color: Color(Utils.colorWhite),
-                                      fontSize: Utils.size_16),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: Utils.size_06),
+                        child: Column(
+                          children: [
+                            Card(
+                              shadowColor: Color(Utils.colorBlue),
+                              color: Color(Utils.primaryColor),
+                              elevation: Utils.size_10,
+                              child: Padding(
+                                padding: EdgeInsets.all(Utils.size_12),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    CommonWidgets().verticalSize(10),
+                                    Text(
+                                      place.name,
+                                      style: TextStyle(
+                                          color: Color(Utils.colorWhite),
+                                          fontSize: Utils.size_16),
+                                    ),
+                                    CommonWidgets().verticalSize(10),
+                                    Text(
+                                      place.description,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Color(Utils.colorWhite),
+                                          fontSize: Utils.size_14),
+                                    ),
+                                    CommonWidgets().verticalSize(10),
+                                    GestureDetector(
+                                      child: Text(
+                                        Utils.location,
+                                        style: TextStyle(
+                                          letterSpacing: 1.5,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: Utils.size_12,
+                                          decoration: TextDecoration.underline,
+                                          color: Color(Utils.colorBlack),
+                                        ),
+                                      ),
+                                      onTap: () {
+                                        launch(place.location);
+                                      },
+                                    ),
+                                  ],
                                 ),
-                                CommonWidgets().verticalSize(10),
-                                Text(
-                                  place.description,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Color(Utils.colorWhite),
-                                      fontSize: Utils.size_14),
-                                ),
-                                CommonWidgets().verticalSize(10),
-                                GestureDetector(
-                                  child: Text(
-                                    Utils.location,
-                                    style: TextStyle(
-                                        fontSize: Utils.size_12,
-                                        decoration: TextDecoration.underline,
-                                        color: Color(Utils.colorBlack)),
-                                  ),
-                                  onTap: () {
-                                    launch(place.location);
-                                  },
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
+                            CommonWidgets().verticalSize(10),
+                            Divider(
+                              thickness: 1,
+                              height: 1,
+                              color: Color(Utils.colorOrange),
+                              indent: Utils.size_50,
+                              endIndent: Utils.size_50,
+                            ),
+                            CommonWidgets().verticalSize(10),
+                          ],
                         ),
                       );
                     },
