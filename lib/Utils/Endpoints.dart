@@ -33,4 +33,6 @@ class Endpoints {
   static var hotelAdd = 'http://localhost:8081/api/mera_thar/city/hotel/add';
   static var hotelUpdate = 'http://localhost:8081/api/mera_thar/city/hotel/update';
   static var hotelDelete = 'http://localhost:8081/api/mera_thar/city/hotel/delete';
+  static var hotelGetWithCityName = 'http://localhost:8081/api/city/hotel/get/city-name';
+
 }

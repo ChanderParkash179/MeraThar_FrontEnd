@@ -27,10 +27,10 @@ class Routes {
     GetPage(name: '/mithiView', page: () => const MithiView()),
 
     // SERVICES PAGE
-    GetPage(name: '/cultureView', page: () => const CultureView()),
-    GetPage(name: '/hotelView', page: () => const HotelView()),
-    GetPage(name: '/restaurantView', page: () => const RestaurantView()),
-    GetPage(name: '/travelingView', page: () => const TravelingView()),
+    GetPage(name: '/cultureView', page: () => CultureView()),
+    GetPage(name: '/hotelView', page: () => HotelView()),
+    GetPage(name: '/restaurantView', page: () => RestaurantView()),
+    GetPage(name: '/travelingView', page: () => TravelingView()),
     GetPage(name: '/touristPointView', page: () => TouristPointView()),
   ];
 }
