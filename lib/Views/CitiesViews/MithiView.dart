@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Views/AppServicesViews/CultureView.dart';
 import 'package:front_app/Views/AppServicesViews/HotelView.dart';
+import 'package:front_app/Views/AppServicesViews/RestaurantView.dart';
 import 'package:front_app/Views/AppServicesViews/TouristPointView.dart';
 import 'package:front_app/Widgets/ButtonWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
@@ -96,7 +97,13 @@ class _MithiViewState extends State<MithiView> {
                         ButtonWidget(
                           onTap: () {
                             setState(() {
-                              Get.toNamed('/restaurantView');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      RestaurantView(cityName: Utils.mithi),
+                                ),
+                              );
                             });
                           },
                           title: Utils.restaurant.toUpperCase(),

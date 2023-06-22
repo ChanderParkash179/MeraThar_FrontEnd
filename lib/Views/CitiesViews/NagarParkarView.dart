@@ -97,7 +97,13 @@ class _NagarParkarViewState extends State<NagarParkarView> {
                         ButtonWidget(
                           onTap: () {
                             setState(() {
-                              Get.toNamed('/restaurantView');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      RestaurantView(cityName: Utils.mithi),
+                                ),
+                              );
                             });
                           },
                           title: Utils.restaurant.toUpperCase(),

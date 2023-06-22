@@ -35,4 +35,12 @@ class Endpoints {
   static var hotelDelete = 'http://localhost:8081/api/mera_thar/city/hotel/delete';
   static var hotelGetWithCityName = 'http://localhost:8081/api/city/hotel/get/city-name';
 
+    // HOTEL ENDPOINTS
+  static var restaurantList = 'http://localhost:8081/api/mera_thar/city/restaurant/list';
+  static var restaurantGet = 'http://localhost:8081/api/mera_thar/city/restaurant/get';
+  static var restaurantAdd = 'http://localhost:8081/api/mera_thar/city/restaurant/add';
+  static var restaurantUpdate = 'http://localhost:8081/api/mera_thar/city/restaurant/update';
+  static var restaurantDelete = 'http://localhost:8081/api/mera_thar/city/restaurant/delete';
+  static var restaurantGetWithCityName = 'http://localhost:8081/api/city/restaurant/get/city-name';
+
 }
