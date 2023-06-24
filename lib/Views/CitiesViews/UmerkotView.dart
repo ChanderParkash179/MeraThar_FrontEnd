@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Views/AppServicesViews/CultureView.dart';
 import 'package:front_app/Views/AppServicesViews/HotelView.dart';
 import 'package:front_app/Views/AppServicesViews/RestaurantView.dart';
 import 'package:front_app/Views/AppServicesViews/TouristPointView.dart';
 import 'package:front_app/Views/AppServicesViews/TravelingView.dart';
-import 'package:front_app/Widgets/ButtonWidget.dart';
+import 'package:front_app/Widgets/GridViewButtonWidget.dart';
 import 'package:get/get.dart';
 
 class UmerkotView extends StatefulWidget {
@@ -18,9 +19,6 @@ class UmerkotView extends StatefulWidget {
 class _UmerkotViewState extends State<UmerkotView> {
   @override
   Widget build(BuildContext context) {
-    final _width = MediaQuery.of(context).size.width;
-    final _height = MediaQuery.of(context).size.height;
-
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -55,123 +53,95 @@ class _UmerkotViewState extends State<UmerkotView> {
               child: GridView.count(
                 crossAxisCount: 2,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  TouristPointView(cityName: Utils.umerkot),
-                            ),
-                          );
-                        });
-                      },
-                      height: Utils.size_24,
-                      width: Utils.size_24,
-                      icon: Icon(
-                        size: Utils.size_24,
-                        Icons.place_outlined,
-                        color: Color(Utils.colorWhite),
-                      ),
-                      // title: Utils.visitingPoint.toUpperCase(),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                TouristPointView(cityName: Utils.umerkot),
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.mapLocation,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_32,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  HotelView(cityName: Utils.mithi),
-                            ),
-                          );
-                        });
-                      },
-                      height: Utils.size_24,
-                      width: Utils.size_24,
-                      icon: Icon(
-                        size: Utils.size_24,
-                        color: Color(Utils.colorWhite),
-                        Icons.hotel_outlined,
-                      ),
-                      // title: Utils.hotels.toUpperCase(),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                HotelView(cityName: Utils.umerkot),
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.hotel,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_32,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  RestaurantView(cityName: Utils.umerkot),
-                            ),
-                          );
-                        });
-                      },
-                      height: Utils.size_24,
-                      width: Utils.size_24,
-                      icon: Icon(
-                        size: Utils.size_24,
-                        color: Color(Utils.colorWhite),
-                        Icons.food_bank_outlined,
-                      ),
-                      // title: Utils.restaurant.toUpperCase(),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                RestaurantView(cityName: Utils.umerkot),
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.bowlFood,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_32,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  TravelingView(cityName: Utils.mithi),
-                            ),
-                          );
-                        });
-                      },
-                      height: Utils.size_24,
-                      width: Utils.size_24,
-                      icon: Icon(
-                          size: Utils.size_24,
-                          color: Color(Utils.colorWhite),
-                          Icons.car_repair_outlined),
-                      // title: Utils.traveling.toUpperCase(),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                TravelingView(cityName: Utils.umerkot),
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.car,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_32,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Get.to(
-                            CultureView(
-                              Utils.umerkot,
-                              Utils.umerkot_icon_img,
-                              Utils.umerkotCulture,
-                              Utils.umerkotWeb,
-                            ),
-                          );
-                        });
-                      },
-                      height: Utils.size_24,
-                      width: Utils.size_24,
-                      icon: Icon(
-                          size: Utils.size_24,
-                          color: Color(Utils.colorWhite),
-                          Icons.history_edu_outlined),
-                      // title: Utils.culture.toUpperCase(),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Get.to(
+                          CultureView(
+                            Utils.umerkot,
+                            Utils.umerkot_icon_img,
+                            Utils.umerkotCulture,
+                            Utils.umerkotWeb,
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.landmarkDome,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_32,
                     ),
                   ),
                 ],

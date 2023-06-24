@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Views/AppServicesViews/CultureView.dart';
 import 'package:front_app/Views/AppServicesViews/HotelView.dart';
@@ -7,6 +8,7 @@ import 'package:front_app/Views/AppServicesViews/TouristPointView.dart';
 import 'package:front_app/Views/AppServicesViews/TravelingView.dart';
 import 'package:front_app/Widgets/ButtonWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
+import 'package:front_app/Widgets/GridViewButtonWidget.dart';
 import 'package:get/get.dart';
 
 class MithiView extends StatefulWidget {
@@ -53,108 +55,95 @@ class _MithiViewState extends State<MithiView> {
               child: GridView.count(
                 crossAxisCount: 2,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  TouristPointView(cityName: Utils.mithi),
-                            ),
-                          );
-                        });
-                      },
-                      icon: Icon(
-                        Icons.place_outlined,
-                        color: Color(Utils.colorWhite),
-                      ),
-                      title: Utils.visitingPoint.toUpperCase(),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                TouristPointView(cityName: Utils.mithi),
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.mapLocation,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_24,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  HotelView(cityName: Utils.mithi),
-                            ),
-                          );
-                        });
-                      },
-                      title: Utils.hotels.toUpperCase(),
-                      icon: Icon(
-                        color: Color(Utils.colorWhite),
-                        Icons.hotel_outlined,
-                      ),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                HotelView(cityName: Utils.mithi),
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.hotel,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_24,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  RestaurantView(cityName: Utils.mithi),
-                            ),
-                          );
-                        });
-                      },
-                      icon: Icon(
-                        color: Color(Utils.colorWhite),
-                        Icons.food_bank_outlined,
-                      ),
-                      title: Utils.restaurant.toUpperCase(),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                RestaurantView(cityName: Utils.mithi),
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.bowlFood,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_24,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  TravelingView(cityName: Utils.mithi),
-                            ),
-                          );
-                        });
-                      },
-                      icon: Icon(
-                          color: Color(Utils.colorWhite),
-                          Icons.car_repair_outlined),
-                      title: Utils.traveling.toUpperCase(),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                TravelingView(cityName: Utils.mithi),
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.car,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_24,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(Utils.size_08),
-                    child: ButtonWidget(
-                      onTap: () {
-                        setState(() {
-                          Get.to(
-                            CultureView(
-                              Utils.mithi,
-                              Utils.mithi_icon_img,
-                              Utils.mithiCulture,
-                              Utils.mithiWeb,
-                            ),
-                          );
-                        });
-                      },
-                      icon: Icon(
-                          color: Color(Utils.colorWhite),
-                          Icons.history_edu_outlined),
-                      title: Utils.culture.toUpperCase(),
+                  GridViewButtonWidget(
+                    onTap: () {
+                      setState(() {
+                        Get.to(
+                          CultureView(
+                            Utils.mithi,
+                            Utils.mithi_icon_img,
+                            Utils.mithiCulture,
+                            Utils.mithiWeb,
+                          ),
+                        );
+                      });
+                    },
+                    icon: FaIcon(
+                      FontAwesomeIcons.landmarkDome,
+                      color: Color(Utils.colorWhite),
+                      size: Utils.size_24,
                     ),
                   ),
                 ],
