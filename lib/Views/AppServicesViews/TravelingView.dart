@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:front_app/Utils/Utils.dart';
 
-class TravelingView extends StatelessWidget {
-  const TravelingView({super.key});
+class TravelingView extends StatefulWidget {
+  final String? cityName;
 
+  TravelingView({this.cityName});
+
+  @override
+  State<TravelingView> createState() => _TravelingViewState();
+}
+
+class _TravelingViewState extends State<TravelingView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

@@ -4,6 +4,7 @@ import 'package:front_app/Views/AppServicesViews/CultureView.dart';
 import 'package:front_app/Views/AppServicesViews/HotelView.dart';
 import 'package:front_app/Views/AppServicesViews/RestaurantView.dart';
 import 'package:front_app/Views/AppServicesViews/TouristPointView.dart';
+import 'package:front_app/Views/AppServicesViews/TravelingView.dart';
 import 'package:front_app/Widgets/ButtonWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
 import 'package:get/get.dart';
@@ -18,8 +19,6 @@ class NagarParkarView extends StatefulWidget {
 class _NagarParkarViewState extends State<NagarParkarView> {
   @override
   Widget build(BuildContext context) {
-    final _height = MediaQuery.of(context).size.height;
-    final _width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -49,91 +48,116 @@ class _NagarParkarViewState extends State<NagarParkarView> {
                 ],
               ),
             ),
-            child: Center(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          Utils.splashIcon1,
-                          width: _width * .80,
-                          height: _height * .30,
-                        ),
-                        CommonWidgets().verticalSize(Utils.size_22),
-                        ButtonWidget(
-                          onTap: () {
-                            setState(() {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => TouristPointView(
-                                      cityName: Utils.nagarparkar),
-                                ),
-                              );
-                            });
-                          },
-                          title: Utils.visitingPoint.toUpperCase(),
-                        ),
-                        CommonWidgets().verticalSize(Utils.size_12),
-                        ButtonWidget(
-                          onTap: () {
-                            setState(() {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      HotelView(cityName: Utils.mithi),
-                                ),
-                              );
-                            });
-                          },
-                          title: Utils.hotels.toUpperCase(),
-                        ),
-                        CommonWidgets().verticalSize(Utils.size_12),
-                        ButtonWidget(
-                          onTap: () {
-                            setState(() {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      RestaurantView(cityName: Utils.mithi),
-                                ),
-                              );
-                            });
-                          },
-                          title: Utils.restaurant.toUpperCase(),
-                        ),
-                        CommonWidgets().verticalSize(Utils.size_12),
-                        ButtonWidget(
-                          onTap: () {
-                            setState(() {
-                              Get.toNamed('/travelingView');
-                            });
-                          },
-                          title: Utils.traveling.toUpperCase(),
-                        ),
-                        CommonWidgets().verticalSize(Utils.size_12),
-                        ButtonWidget(
-                          onTap: () {
-                            setState(() {
-                              Get.to(CultureView(
-                                  Utils.nagarparkar,
-                                  Utils.nagarparkar_icon_img,
-                                  Utils.nagarparkarCulture,
-                                  Utils.nagarparkarWeb));
-                            });
-                          },
-                          title: Utils.culture.toUpperCase(),
-                        ),
-                      ],
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(0, Utils.size_32, 0, 0),
+              child: GridView.count(
+                crossAxisCount: 2,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(Utils.size_08),
+                    child: ButtonWidget(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  TouristPointView(cityName: Utils.nagarparkar),
+                            ),
+                          );
+                        });
+                      },
+                      icon: Icon(
+                        Icons.place_outlined,
+                        color: Color(Utils.colorWhite),
+                      ),
+                      title: Utils.visitingPoint.toUpperCase(),
                     ),
                   ),
-                ),
+                  Padding(
+                    padding: EdgeInsets.all(Utils.size_08),
+                    child: ButtonWidget(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  HotelView(cityName: Utils.nagarparkar),
+                            ),
+                          );
+                        });
+                      },
+                      title: Utils.hotels.toUpperCase(),
+                      icon: Icon(
+                        color: Color(Utils.colorWhite),
+                        Icons.hotel_outlined,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(Utils.size_08),
+                    child: ButtonWidget(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  RestaurantView(cityName: Utils.nagarparkar),
+                            ),
+                          );
+                        });
+                      },
+                      icon: Icon(
+                        color: Color(Utils.colorWhite),
+                        Icons.food_bank_outlined,
+                      ),
+                      title: Utils.restaurant.toUpperCase(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(Utils.size_08),
+                    child: ButtonWidget(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  TravelingView(cityName: Utils.nagarparkar),
+                            ),
+                          );
+                        });
+                      },
+                      icon: Icon(
+                          color: Color(Utils.colorWhite),
+                          Icons.car_repair_outlined),
+                      title: Utils.traveling.toUpperCase(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(Utils.size_08),
+                    child: ButtonWidget(
+                      onTap: () {
+                        setState(() {
+                          Get.to(
+                            CultureView(
+                              Utils.nagarparkar,
+                              Utils.nagarparkar_icon_img,
+                              Utils.nagarparkarCulture,
+                              Utils.nagarparkarWeb,
+                            ),
+                          );
+                        });
+                      },
+                      icon: Icon(
+                          color: Color(Utils.colorWhite),
+                          Icons.history_edu_outlined),
+                      title: Utils.culture.toUpperCase(),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

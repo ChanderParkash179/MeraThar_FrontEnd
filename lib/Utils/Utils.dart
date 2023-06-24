@@ -59,7 +59,7 @@ class Utils {
   static var cultureOfPrefix = 'Culture of ';
 
   static var umerkotWeb = 'https://www.dawn.com/news/1595506';
-  static var mitihiWeb = 'https://www.dawn.com/news/1167315';
+  static var mithiWeb = 'https://www.dawn.com/news/1167315';
   static var nagarparkarWeb =
       'https://www.pakistantraveler.com/nagarparkar-in-sindh-pakistan/';
 
