@@ -3,6 +3,7 @@ import 'package:front_app/Model/HotelModel/Hotel.dart';
 import 'package:front_app/Service/HotelService.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
+import 'package:front_app/Widgets/GlassBox.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HotelView extends StatefulWidget {
@@ -26,6 +27,7 @@ class _HotelViewState extends State<HotelView> {
 
   @override
   Widget build(BuildContext context) {
+    final Padding? padding;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -74,11 +76,8 @@ class _HotelViewState extends State<HotelView> {
                             EdgeInsets.symmetric(horizontal: Utils.size_06),
                         child: Column(
                           children: [
-                            Card(
-                              shadowColor: Color(Utils.colorBlue),
-                              color: Color(Utils.primaryColor),
-                              elevation: Utils.size_10,
-                              child: Padding(
+                            GlassBox(
+                              padding: Padding(
                                 padding: EdgeInsets.all(Utils.size_12),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,

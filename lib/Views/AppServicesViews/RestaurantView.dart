@@ -3,6 +3,7 @@ import 'package:front_app/Service/RestaurantService.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Model/RestaurantModel/Restaurant.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
+import 'package:front_app/Widgets/GlassBox.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RestaurantView extends StatefulWidget {
@@ -73,11 +74,8 @@ class _RestaurantViewState extends State<RestaurantView> {
                             EdgeInsets.symmetric(horizontal: Utils.size_06),
                         child: Column(
                           children: [
-                            Card(
-                              shadowColor: Color(Utils.colorBlue),
-                              color: Color(Utils.primaryColor),
-                              elevation: Utils.size_10,
-                              child: Padding(
+                            GlassBox(
+                              padding: Padding(
                                 padding: EdgeInsets.all(Utils.size_12),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -101,40 +99,63 @@ class _RestaurantViewState extends State<RestaurantView> {
                                     CommonWidgets().verticalSize(Utils.size_10),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Icon(
-                                          Icons.star,
-                                          color: Color(Utils.colorYellow),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: Utils.size_04,
+                                            vertical: Utils.size_12,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.star,
+                                                size: Utils.size_14,
+                                                color: Color(Utils.colorWhite),
+                                              ),
+                                              CommonWidgets().horizontalSize(
+                                                  Utils.size_04),
+                                              Text(
+                                                restaurant.rating.toString(),
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    color:
+                                                        Color(Utils.colorWhite),
+                                                    fontSize: Utils.size_14),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                         CommonWidgets()
-                                            .horizontalSize(Utils.size_04),
-                                        Text(
-                                          restaurant.rating.toString(),
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              color: Color(Utils.colorWhite),
-                                              fontSize: Utils.size_14),
-                                        ),
+                                            .horizontalSize(Utils.size_10),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: Utils.size_04,
+                                            vertical: Utils.size_12,
+                                          ),
+                                          child: GestureDetector(
+                                            child: Text(
+                                              Utils.location,
+                                              style: TextStyle(
+                                                letterSpacing: 1.5,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: Utils.size_12,
+                                                decoration:
+                                                    TextDecoration.underline,
+                                                color: Color(Utils.colorBlack),
+                                              ),
+                                            ),
+                                            onTap: () {
+                                              launch(restaurant.address
+                                                  .toString());
+                                            },
+                                          ),
+                                        )
                                       ],
-                                    ),
-                                    CommonWidgets().verticalSize(Utils.size_10),
-                                    GestureDetector(
-                                      child: Text(
-                                        Utils.location,
-                                        style: TextStyle(
-                                          letterSpacing: 1.5,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: Utils.size_12,
-                                          decoration: TextDecoration.underline,
-                                          color: Color(Utils.colorBlack),
-                                        ),
-                                      ),
-                                      onTap: () {
-                                        launch(restaurant.address.toString());
-                                      },
                                     ),
                                   ],
                                 ),

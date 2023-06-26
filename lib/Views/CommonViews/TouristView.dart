@@ -45,7 +45,7 @@ class _TouristViewState extends State<TouristView> {
             ),
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(Utils.size_10),
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

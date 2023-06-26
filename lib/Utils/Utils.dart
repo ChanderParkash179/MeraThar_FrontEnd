@@ -113,7 +113,7 @@ class Utils {
   static var colorBlack = 0xff000000;
   static var colorRed = 0xffFF0000;
   static var colorOrange = 0xffFFA500;
-  static var colorYellow = 0xFFFF00;
+  static var colorYellow = 0xffD700;
   static var colorGreyShade200 = 0xffEEEEEE;
   static var colorGreyShade400 = 0xffBDBDBD;
   static var colorGreenAccent = 0xffdde26a;

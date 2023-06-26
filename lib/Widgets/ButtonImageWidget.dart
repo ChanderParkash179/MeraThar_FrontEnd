@@ -37,7 +37,7 @@ class ButtonImageWidget extends StatelessWidget {
             style: TextStyle(
               letterSpacing: 1.5,
               fontWeight: FontWeight.bold,
-              fontSize: Utils.size_16,
+              fontSize: Utils.size_18,
               color: Color(Utils.colorWhite),
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front_app/Utils/Utils.dart';
+import 'package:front_app/Widgets/GlassBox.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CultureView extends StatelessWidget {
@@ -8,11 +9,13 @@ class CultureView extends StatelessWidget {
   final String? cityCulture;
   final String? cultureWeb;
 
-  const CultureView([this.cityName, this.cityImg, this.cityCulture, this.cultureWeb]);
+  const CultureView(
+      [this.cityName, this.cityImg, this.cityCulture, this.cultureWeb]);
 
   @override
   Widget build(BuildContext context) {
     String cultureOf = Utils.welcomeMsg + cityName!;
+    final Padding? padding;
 
     return SafeArea(
       child: Scaffold(
@@ -44,15 +47,9 @@ class CultureView extends StatelessWidget {
               ),
             ),
             child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(Utils.size_12),
-                child: Card(
-                  elevation: 9,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(Utils.size_16),
-                  ),
-                  shadowColor: Color(Utils.secondaryColor),
-                  margin: EdgeInsets.all(Utils.size_24),
+              child: GlassBox(
+                padding: Padding(
+                  padding: EdgeInsets.all(Utils.size_12),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Utils.size_16),

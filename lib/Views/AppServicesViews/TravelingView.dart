@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front_app/Utils/Utils.dart';
+import 'package:front_app/Widgets/GlassBox.dart';
 
 class TravelingView extends StatefulWidget {
   final String? cityName;
@@ -13,6 +14,7 @@ class TravelingView extends StatefulWidget {
 class _TravelingViewState extends State<TravelingView> {
   @override
   Widget build(BuildContext context) {
+    final Padding? padding;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -43,25 +45,22 @@ class _TravelingViewState extends State<TravelingView> {
               ),
             ),
             child: SingleChildScrollView(
-              child: Card(
-                elevation: 9,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(Utils.size_16),
-                ),
-                shadowColor: Color(Utils.secondaryColor),
-                margin: EdgeInsets.all(Utils.size_24),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Utils.size_16),
-                    gradient: RadialGradient(
-                      focalRadius: 4,
-                      colors: [
-                        Color(Utils.colorRed),
-                        Color(Utils.colorOrange),
-                      ],
+              child: GlassBox(
+                padding: Padding(
+                  padding: EdgeInsets.all(Utils.size_08),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Utils.size_16),
+                      gradient: RadialGradient(
+                        focalRadius: 4,
+                        colors: [
+                          Color(Utils.colorRed),
+                          Color(Utils.colorOrange),
+                        ],
+                      ),
                     ),
+                    child: Container(),
                   ),
-                  child: Container(),
                 ),
               ),
             ),
