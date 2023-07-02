@@ -80,8 +80,8 @@ class _HotelViewState extends State<HotelView> {
                               padding: Padding(
                                 padding: EdgeInsets.all(Utils.size_12),
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     CommonWidgets().verticalSize(Utils.size_10),
                                     Text(
