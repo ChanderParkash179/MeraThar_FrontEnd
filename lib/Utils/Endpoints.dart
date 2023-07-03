@@ -27,6 +27,14 @@ class Endpoints {
   static var touristPointUpdate = 'http://localhost:8081/api/mera_thar/city/tourist-point/update';
   static var touristPointDelete = 'http://localhost:8081/api/mera_thar/city/tourist-point/delete';
 
+  // VEHICLES ENDPOINTS
+  static var vehicleList = 'http://localhost:8081/api/mera_thar/city/vehicle/list';
+  static var vehicleGet = 'http://localhost:8081/api/mera_thar/city/vehicle/get';
+  static var vehicleGetWithCityName = 'http://localhost:8081/api/city/vehicle/get/city-name';
+  static var vehicleAdd = 'http://localhost:8081/api/mera_thar/city/vehicle/add';
+  static var vehicleUpdate = 'http://localhost:8081/api/mera_thar/city/vehicle/update';
+  static var vehicleDelete = 'http://localhost:8081/api/mera_thar/city/vehicle/delete';
+
   // HOTEL ENDPOINTS
   static var hotelList = 'http://localhost:8081/api/mera_thar/city/hotel/list';
   static var hotelGet = 'http://localhost:8081/api/mera_thar/city/hotel/get';
