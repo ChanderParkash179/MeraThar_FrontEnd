@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:front_app/Model/TravelingModel/Vehilce.dart';
 import 'package:front_app/Service/TravelingService.dart';
 import 'package:front_app/Utils/Utils.dart';
@@ -69,7 +70,7 @@ class _TravelingViewState extends State<TravelingView> {
                   return ListView.builder(
                     itemCount: responseData.vehicles.length,
                     itemBuilder: (context, index) {
-                      final restaurant = responseData.vehicles[index];
+                      final vehicle = responseData.vehicles[index];
                       return Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: Utils.size_06),
@@ -78,68 +79,82 @@ class _TravelingViewState extends State<TravelingView> {
                             GlassBox(
                               padding: Padding(
                                 padding: EdgeInsets.all(Utils.size_12),
-                                child: Column(
+                                child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    CommonWidgets().verticalSize(Utils.size_10),
-                                    Text(
-                                      restaurant.name.toString(),
-                                      style: TextStyle(
+                                    GlassBox(
+                                      padding: Padding(
+                                        padding: EdgeInsets.all(Utils.size_12),
+                                        child: FaIcon(
+                                          vehicle.type == 'BUS'.toUpperCase()
+                                              ? FontAwesomeIcons.bus
+                                              : vehicle.type ==
+                                                      'BIKE'.toUpperCase()
+                                                  ? FontAwesomeIcons.motorcycle
+                                                  : vehicle.type ==
+                                                          'CAR'.toUpperCase()
+                                                      ? FontAwesomeIcons.car
+                                                      : vehicle.type ==
+                                                              'RIKSHAW'
+                                                                  .toUpperCase()
+                                                          ? Icons.moped_sharp
+                                                          : Icons.error,
                                           color: Color(Utils.colorWhite),
-                                          fontSize: Utils.size_16),
+                                          size: Utils.size_24,
+                                        ),
+                                      ),
                                     ),
-                                    CommonWidgets().verticalSize(Utils.size_10),
-                                    Text(
-                                      restaurant.phone.toString(),
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(Utils.colorWhite),
-                                          fontSize: Utils.size_14),
-                                    ),
-                                    CommonWidgets().verticalSize(Utils.size_10),
-                                    Row(
+                                    CommonWidgets()
+                                        .horizontalSize(Utils.size_10),
+                                    Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        Padding(
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: Utils.size_04,
-                                            vertical: Utils.size_12,
-                                          ),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.star,
-                                                size: Utils.size_14,
-                                                color: Color(Utils.colorWhite),
-                                              ),
-                                              CommonWidgets().horizontalSize(
-                                                  Utils.size_04),
-                                              Text(
-                                                restaurant.rating.toString(),
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color:
-                                                        Color(Utils.colorWhite),
-                                                    fontSize: Utils.size_14),
-                                              ),
-                                            ],
+                                        Text(
+                                          vehicle.name.toString(),
+                                          style: TextStyle(
+                                            letterSpacing: 2.0,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: Utils.size_16,
+                                            color: Color(Utils.colorWhite),
                                           ),
                                         ),
                                         CommonWidgets()
-                                            .horizontalSize(Utils.size_10),
-                                        Padding(
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: Utils.size_04,
-                                            vertical: Utils.size_12,
+                                            .verticalSize(Utils.size_04),
+                                        Text(
+                                          vehicle.phone.toString(),
+                                          style: TextStyle(
+                                            letterSpacing: 1.7,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: Utils.size_12,
+                                            color: Color(Utils.colorWhite),
                                           ),
-                                        )
+                                        ),
                                       ],
+                                    ),
+                                    CommonWidgets()
+                                        .horizontalSize(Utils.size_16),
+                                    Center(
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.star,
+                                            size: Utils.size_14,
+                                            color: Color(Utils.colorWhite),
+                                          ),
+                                          CommonWidgets()
+                                              .horizontalSize(Utils.size_04),
+                                          Text(
+                                            vehicle.rating.toString(),
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Color(Utils.colorWhite),
+                                                fontSize: Utils.size_14),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),

@@ -12,7 +12,7 @@ class GlassBox extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.fromLTRB(
         Utils.size_16,
-        Utils.size_16,
+        Utils.size_04,
         Utils.size_16,
         Utils.size_04,
       ),
