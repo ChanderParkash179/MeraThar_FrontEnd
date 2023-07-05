@@ -34,15 +34,17 @@ class _TouristViewState extends State<TouristView> {
             height: double.infinity,
             width: double.infinity,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(Utils.primaryColor),
-                  Color(Utils.secondaryColor),
-                ],
-              ),
-            ),
+                image: DecorationImage(
+                    image: AssetImage(Utils.bg_img), fit: BoxFit.cover)
+                // gradient: LinearGradient(
+                //   begin: Alignment.topRight,
+                //   end: Alignment.bottomRight,
+                //   colors: [
+                //     Color(Utils.primaryColor),
+                //     Color(Utils.secondaryColor),
+                //   ],
+                // ),
+                ),
             child: SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.all(Utils.size_10),

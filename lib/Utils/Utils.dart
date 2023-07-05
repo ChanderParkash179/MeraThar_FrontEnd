@@ -74,6 +74,8 @@ class Utils {
 
   // SIZES
 
+  static double size_00 = 00.0;
+  static double size_02 = 02.0;
   static double size_04 = 04.0;
   static double size_06 = 06.0;
   static double size_08 = 08.0;
@@ -124,6 +126,7 @@ class Utils {
   static var umerkot_icon_img = 'assets/images/umerkot_btn_img.png';
   static var mithi_icon_img = 'assets/images/mithi_btn_img.png';
   static var nagarparkar_icon_img = 'assets/images/nagarparkar_btn_img.png';
+  static var bg_img = 'assets/images/bg_img.jpg';
 
   // HEADERS
   static var header = {'Content-Type': 'application/json'};

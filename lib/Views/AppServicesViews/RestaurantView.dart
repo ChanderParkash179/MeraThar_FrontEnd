@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:front_app/Service/RestaurantService.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Model/RestaurantModel/Restaurant.dart';
+import 'package:front_app/Widgets/AppBackground.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
 import 'package:front_app/Widgets/GlassBox.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -42,20 +43,9 @@ class _RestaurantViewState extends State<RestaurantView> {
           elevation: 0,
           backgroundColor: Color(Utils.primaryColor),
         ),
-        body: SafeArea(
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(Utils.primaryColor),
-                  Color(Utils.secondaryColor),
-                ],
-              ),
-            ),
+        body: AppBackground(
+          padding: Padding(
+            padding: EdgeInsets.all(Utils.size_02),
             child: FutureBuilder<Response>(
               future: _future,
               builder: (context, snapshot) {
@@ -76,17 +66,21 @@ class _RestaurantViewState extends State<RestaurantView> {
                           children: [
                             GlassBox(
                               padding: Padding(
-                                padding: EdgeInsets.all(Utils.size_12),
+                                padding: EdgeInsets.all(Utils.size_08),
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     CommonWidgets().verticalSize(Utils.size_10),
-                                    Text(
-                                      restaurant.name.toString(),
-                                      style: TextStyle(
-                                          color: Color(Utils.colorWhite),
-                                          fontSize: Utils.size_16),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: Utils.size_06),
+                                      child: Text(
+                                        restaurant.name.toString(),
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Color(Utils.colorWhite),
+                                            fontSize: Utils.size_16),
+                                      ),
                                     ),
                                     CommonWidgets().verticalSize(Utils.size_10),
                                     Text(
@@ -99,44 +93,32 @@ class _RestaurantViewState extends State<RestaurantView> {
                                     CommonWidgets().verticalSize(Utils.size_10),
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        Padding(
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: Utils.size_04,
-                                            vertical: Utils.size_12,
-                                          ),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.star,
-                                                size: Utils.size_14,
-                                                color: Color(Utils.colorWhite),
-                                              ),
-                                              CommonWidgets().horizontalSize(
-                                                  Utils.size_04),
-                                              Text(
-                                                restaurant.rating.toString(),
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color:
-                                                        Color(Utils.colorWhite),
-                                                    fontSize: Utils.size_14),
-                                              ),
-                                            ],
-                                          ),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.star,
+                                              size: Utils.size_14,
+                                              color: Color(Utils.colorWhite),
+                                            ),
+                                            CommonWidgets()
+                                                .horizontalSize(Utils.size_06),
+                                            Text(
+                                              restaurant.rating.toString(),
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  color:
+                                                      Color(Utils.colorWhite),
+                                                  fontSize: Utils.size_16),
+                                            ),
+                                          ],
                                         ),
                                         CommonWidgets()
                                             .horizontalSize(Utils.size_10),
                                         Padding(
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: Utils.size_04,
-                                            vertical: Utils.size_12,
-                                          ),
+                                          padding: EdgeInsets.fromLTRB(
+                                              0, 0, 0, Utils.size_08),
                                           child: GestureDetector(
                                             child: Text(
                                               Utils.location,
@@ -154,7 +136,7 @@ class _RestaurantViewState extends State<RestaurantView> {
                                                   .toString());
                                             },
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ],

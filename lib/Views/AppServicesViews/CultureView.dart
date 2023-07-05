@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front_app/Utils/Utils.dart';
+import 'package:front_app/Widgets/AppBackground.dart';
 import 'package:front_app/Widgets/GlassBox.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,24 +33,13 @@ class CultureView extends StatelessWidget {
           elevation: 0,
           backgroundColor: Color(Utils.primaryColor),
         ),
-        body: SafeArea(
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(Utils.primaryColor),
-                  Color(Utils.secondaryColor),
-                ],
-              ),
-            ),
+        body: AppBackground(
+          padding: Padding(
+            padding: EdgeInsets.all(Utils.size_02),
             child: SingleChildScrollView(
               child: GlassBox(
                 padding: Padding(
-                  padding: EdgeInsets.all(Utils.size_12),
+                  padding: EdgeInsets.all(Utils.size_08),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Utils.size_16),

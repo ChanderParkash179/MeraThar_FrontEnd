@@ -3,9 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:front_app/Model/TravelingModel/Vehilce.dart';
 import 'package:front_app/Service/TravelingService.dart';
 import 'package:front_app/Utils/Utils.dart';
+import 'package:front_app/Widgets/AppBackground.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
 import 'package:front_app/Widgets/GlassBox.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TravelingView extends StatefulWidget {
   final String? cityName;
@@ -44,20 +44,9 @@ class _TravelingViewState extends State<TravelingView> {
           elevation: 0,
           backgroundColor: Color(Utils.primaryColor),
         ),
-        body: SafeArea(
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(Utils.primaryColor),
-                  Color(Utils.secondaryColor),
-                ],
-              ),
-            ),
+        body: AppBackground(
+          padding: Padding(
+            padding: EdgeInsets.all(Utils.size_02),
             child: FutureBuilder<Response>(
               future: _future,
               builder: (context, snapshot) {
@@ -78,13 +67,15 @@ class _TravelingViewState extends State<TravelingView> {
                           children: [
                             GlassBox(
                               padding: Padding(
-                                padding: EdgeInsets.all(Utils.size_12),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: Utils.size_06,
+                                    vertical: Utils.size_06),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     GlassBox(
                                       padding: Padding(
-                                        padding: EdgeInsets.all(Utils.size_12),
+                                        padding: EdgeInsets.all(Utils.size_06),
                                         child: FaIcon(
                                           vehicle.type == 'BUS'.toUpperCase()
                                               ? FontAwesomeIcons.bus
@@ -100,7 +91,7 @@ class _TravelingViewState extends State<TravelingView> {
                                                           ? Icons.moped_sharp
                                                           : Icons.error,
                                           color: Color(Utils.colorWhite),
-                                          size: Utils.size_24,
+                                          size: Utils.size_26,
                                         ),
                                       ),
                                     ),
@@ -115,9 +106,9 @@ class _TravelingViewState extends State<TravelingView> {
                                         Text(
                                           vehicle.name.toString(),
                                           style: TextStyle(
-                                            letterSpacing: 2.0,
+                                            letterSpacing: 1.5,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: Utils.size_16,
+                                            fontSize: Utils.size_12,
                                             color: Color(Utils.colorWhite),
                                           ),
                                         ),
@@ -126,16 +117,16 @@ class _TravelingViewState extends State<TravelingView> {
                                         Text(
                                           vehicle.phone.toString(),
                                           style: TextStyle(
-                                            letterSpacing: 1.7,
+                                            letterSpacing: 1.2,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: Utils.size_12,
+                                            fontSize: Utils.size_10,
                                             color: Color(Utils.colorWhite),
                                           ),
                                         ),
                                       ],
                                     ),
                                     CommonWidgets()
-                                        .horizontalSize(Utils.size_16),
+                                        .horizontalSize(Utils.size_12),
                                     Center(
                                       child: Row(
                                         children: [
