@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:front_app/Service/RegistrationService.dart';
+import 'package:front_app/Service/AuthenticationService.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Widgets/ButtonWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
@@ -14,11 +14,12 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-  final _userNameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _securityQuestionController = TextEditingController();
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
 
-  final RegistrationService registrationService = RegistrationService();
+  final AuthenticationService authenticationService = AuthenticationService();
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +65,8 @@ class _RegisterViewState extends State<RegisterView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextFieldWidget(
-                          controller: _userNameController,
-                          hintText: Utils.userNameHintText,
+                          controller: _emailController,
+                          hintText: Utils.emailHintText,
                           obsecureText: false),
                       CommonWidgets().verticalSize(10),
                       TextFieldWidget(
@@ -74,8 +75,13 @@ class _RegisterViewState extends State<RegisterView> {
                           obsecureText: true),
                       CommonWidgets().verticalSize(10),
                       TextFieldWidget(
-                          controller: _securityQuestionController,
-                          hintText: Utils.securityQuestionText,
+                          controller: _firstNameController,
+                          hintText: Utils.firstNameText,
+                          obsecureText: false),
+                      CommonWidgets().verticalSize(10),
+                      TextFieldWidget(
+                          controller: _lastNameController,
+                          hintText: Utils.firstNameText,
                           obsecureText: false),
                     ],
                   ),
@@ -83,11 +89,12 @@ class _RegisterViewState extends State<RegisterView> {
                   ButtonWidget(
                     onTap: () {
                       setState(() {
-                        registrationService.registrationNavigation(
+                        authenticationService.register(
                           context,
-                          _userNameController,
+                          _emailController,
                           _passwordController,
-                          _securityQuestionController,
+                          _firstNameController,
+                          _lastNameController,
                         );
                       });
                     },

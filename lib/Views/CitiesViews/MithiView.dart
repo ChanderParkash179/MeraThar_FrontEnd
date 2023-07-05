@@ -8,6 +8,7 @@ import 'package:front_app/Views/AppServicesViews/TouristPointView.dart';
 import 'package:front_app/Views/AppServicesViews/TravelingView.dart';
 import 'package:front_app/Widgets/AppBackground.dart';
 import 'package:front_app/Widgets/GridViewButtonWidget.dart';
+import 'package:front_app/Widgets/HiddenDrawer.dart';
 import 'package:get/get.dart';
 
 class MithiView extends StatefulWidget {

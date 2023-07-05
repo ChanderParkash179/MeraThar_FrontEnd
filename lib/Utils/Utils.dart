@@ -12,9 +12,10 @@ class Utils {
   static var readMore = 'Read more...';
 
   static var loginViewSlogan = 'Welcome Back You\'ve been Missed!';
-  static var userNameHintText = 'Username';
+  static var emailHintText = 'Email';
   static var passwordHintText = 'Password';
-  static var securityQuestionText = 'Security Question';
+  static var firstNameText = 'First Name';
+  static var lastNameText = 'Last Name';
 
   static var notRegisterMsg = 'Don\'t have an Account';
   static var alreadyRegisterMsg = 'Already have an Account';
@@ -42,6 +43,14 @@ class Utils {
   static var OK = 'OK';
   static var CANCEL = 'CANCEL';
   static var SUCCESS = 'SUCCESS';
+
+  // PAGE NAMES
+  static var touristView = 'Tourist View';
+  static var visitingPointView = 'Location View';
+  static var hotelView = 'Hotel View';
+  static var restaurantsView = 'Restaurant View';
+  static var travelingView = 'Traveling View';
+  static var cultureView = 'Culture View';
 
   static var citiesPage = 'Cities Page';
   static var umerkot = 'Umerkot';

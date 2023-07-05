@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:front_app/Service/LoginService.dart';
+import 'package:front_app/Service/AuthenticationService.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Widgets/ButtonWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
@@ -15,10 +15,10 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  final _userNameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  final LoginService loginService = LoginService();
+  final AuthenticationService authenticationService = AuthenticationService();
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +64,8 @@ class _LoginViewState extends State<LoginView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextFieldWidget(
-                          controller: _userNameController,
-                          hintText: Utils.userNameHintText,
+                          controller: _emailController,
+                          hintText: Utils.emailHintText,
                           obsecureText: false),
                       CommonWidgets().verticalSize(10),
                       TextFieldWidget(
@@ -96,8 +96,11 @@ class _LoginViewState extends State<LoginView> {
                   CommonWidgets().verticalSize(10),
                   ButtonWidget(
                     onTap: () {
-                      loginService.loginNavigation(
-                          context, _userNameController, _passwordController);
+                      authenticationService.login(
+                        context,
+                        _emailController,
+                        _passwordController,
+                      );
                     },
                     title: Utils.login,
                   ),

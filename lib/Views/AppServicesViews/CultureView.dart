@@ -39,7 +39,7 @@ class CultureView extends StatelessWidget {
             child: SingleChildScrollView(
               child: GlassBox(
                 padding: Padding(
-                  padding: EdgeInsets.all(Utils.size_08),
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Utils.size_16),
