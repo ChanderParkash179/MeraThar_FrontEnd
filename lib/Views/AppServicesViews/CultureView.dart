@@ -16,7 +16,6 @@ class CultureView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String cultureOf = Utils.welcomeMsg + cityName!;
-    final Padding? padding;
 
     return SafeArea(
       child: Scaffold(

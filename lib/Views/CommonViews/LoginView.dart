@@ -97,9 +97,8 @@ class _LoginViewState extends State<LoginView> {
                   ButtonWidget(
                     onTap: () {
                       authenticationService.login(
-                        context,
-                        _emailController,
-                        _passwordController,
+                        _emailController.text,
+                        _passwordController.text,
                       );
                     },
                     title: Utils.login,

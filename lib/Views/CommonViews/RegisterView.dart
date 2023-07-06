@@ -81,7 +81,7 @@ class _RegisterViewState extends State<RegisterView> {
                       CommonWidgets().verticalSize(10),
                       TextFieldWidget(
                           controller: _lastNameController,
-                          hintText: Utils.firstNameText,
+                          hintText: Utils.lastNameText,
                           obsecureText: false),
                     ],
                   ),
@@ -90,11 +90,10 @@ class _RegisterViewState extends State<RegisterView> {
                     onTap: () {
                       setState(() {
                         authenticationService.register(
-                          context,
-                          _emailController,
-                          _passwordController,
-                          _firstNameController,
-                          _lastNameController,
+                          _emailController.text,
+                          _passwordController.text,
+                          _firstNameController.text,
+                          _lastNameController.text,
                         );
                       });
                     },
