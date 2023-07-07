@@ -1,5 +1,9 @@
 class Utils {
   // VARIABLES & STRINGS
+  static var invalidPassword = 'invalid password!';
+  static var registeredSuccessfully = 'User Registered Successfully!';
+  static var loginSuccessfully = 'User Logged in Successfully!';
+
   static var adminPageTitle = 'Admin Page';
 
   static var appTitle = 'Mera Thar';

@@ -1,7 +1,13 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:front_app/Model/UserModel/User.dart';
 import 'package:front_app/Utils/Endpoints.dart';
+import 'package:front_app/Utils/Utils.dart';
+import 'package:front_app/Widgets/SnakeBarWidget.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -25,22 +31,75 @@ class AuthenticationService {
       headers: {'Content-Type': 'application/json'},
     );
 
-    if (response.statusCode == 201) {
-      final responseData = jsonDecode(response.body);
-      final userJson = responseData['responseData']['user'];
-      _isAuthenticated = true;
-      Get.toNamed("/touristView");
+    final responseData = jsonDecode(response.body);
+    final userJson = responseData['responseData']['user'];
+    final responseCode = responseData['responseCode'];
 
+    if (responseCode == 'SUCCESS_201') {
+      _isAuthenticated = true;
+      SnakeBarWidget().snakeBar(
+        'REGISTER',
+        'User Registered Successfully!',
+        FaIcon(
+          FontAwesomeIcons.registered,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_26,
+        ),
+        SnackPosition.TOP,
+      );
+      Get.toNamed("/loginView");
       return User(
-        id: userJson['id'],
-        firstName: userJson['firstName'],
-        lastName: userJson['lastName'],
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == 'ERROR_404') {
+      _isAuthenticated = false;
+      SnakeBarWidget().snakeBar(
+        'ERROR_404',
+        'Registered 01',
+        FaIcon(
+          FontAwesomeIcons.algolia,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_26,
+        ),
+        SnackPosition.TOP,
+      );
+      Get.toNamed("/registerUser");
+      return User(
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == 'ERROR_400') {
+      _isAuthenticated = false;
+      SnakeBarWidget().snakeBar(
+        'ERROR_404',
+        'Registered 01',
+        FaIcon(
+          FontAwesomeIcons.algolia,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_26,
+        ),
+        SnackPosition.TOP,
+      );
+      Get.toNamed("/registerUser");
+      return User(
         email: userJson['email'],
         password: userJson['password'],
       );
     } else {
+      _isAuthenticated = false;
+      SnakeBarWidget().snakeBar(
+        'else',
+        'Registered 01',
+        FaIcon(
+          FontAwesomeIcons.algolia,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_26,
+        ),
+        SnackPosition.TOP,
+      );
       Get.toNamed("/registerUser");
-      throw Exception('Failed to register user');
+      throw Exception('Failed to login');
     }
   }
 
@@ -62,25 +121,50 @@ class AuthenticationService {
     final userJson = responseData['responseData']['user'];
     final responseCode = responseData['responseCode'];
 
-    if (responseCode == 'SUCCESS_302') {
+    if (responseCode == 'SUCCESS_202') {
       _isAuthenticated = true;
-
       Get.toNamed("/touristView");
-
+      SnakeBarWidget().snakeBar(
+        'SUCCESS_202',
+        'LOGIN 01',
+        FaIcon(
+          FontAwesomeIcons.algolia,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_26,
+        ),
+        SnackPosition.TOP,
+      );
       return User(
         email: userJson['email'],
         password: userJson['password'],
       );
     } else if (responseCode == 'ERROR_404') {
       _isAuthenticated = false;
-
-      Get.toNamed("/loginView");
-
+      SnakeBarWidget().snakeBar(
+        'ERROR_404',
+        'login 01',
+        FaIcon(
+          FontAwesomeIcons.algolia,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_26,
+        ),
+        SnackPosition.TOP,
+      );
       return User(
         email: userJson['email'],
         password: userJson['password'],
       );
     } else {
+      SnakeBarWidget().snakeBar(
+        'else',
+        'login 01',
+        FaIcon(
+          FontAwesomeIcons.algolia,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_26,
+        ),
+        SnackPosition.TOP,
+      );
       Get.toNamed("/registerUser");
       throw Exception('Failed to login');
     }
@@ -89,6 +173,16 @@ class AuthenticationService {
   void logout() {
     _isAuthenticated = false;
     if (!_isAuthenticated) {
+      SnakeBarWidget().snakeBar(
+        'logout()',
+        'logout 01',
+        FaIcon(
+          FontAwesomeIcons.algolia,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_26,
+        ),
+        SnackPosition.TOP,
+      );
       Get.toNamed('/loginView');
     }
   }
