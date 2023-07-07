@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:front_app/Model/UserModel/User.dart';
 import 'package:front_app/Utils/Endpoints.dart';
+import 'package:front_app/Utils/ResponseCodes.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Widgets/SnakeBarWidget.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ import 'package:http/http.dart' as http;
 class AuthenticationService {
   bool _isAuthenticated = false;
 
+  // REGISTER - SERVICE
   Future<User> register(
       String firstName, String lastName, String email, String password) async {
     final url = Uri.parse(Endpoints.register);
@@ -35,74 +37,186 @@ class AuthenticationService {
     final userJson = responseData['responseData']['user'];
     final responseCode = responseData['responseCode'];
 
-    if (responseCode == 'SUCCESS_201') {
-      _isAuthenticated = true;
+    if (responseCode == ResponseCodes.CODE_USER_INPUT_EMPTY) {
+      _isAuthenticated = false;
+
       SnakeBarWidget().snakeBar(
-        'REGISTER',
-        'User Registered Successfully!',
+        Utils.REGISTER,
+        ResponseCodes.MSG_USER_PARAMETERS_INVALID,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/registerView");
+
+      return User(
+        firstName: userJson['firstName'],
+        lastName: userJson['lastName'],
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_PARAMETERS_INVALID) {
+      _isAuthenticated = false;
+
+      SnakeBarWidget().snakeBar(
+        Utils.REGISTER,
+        ResponseCodes.MSG_USER_PARAMETERS_UNAVAILABLE,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/registerView");
+
+      return User(
+        firstName: userJson['firstName'],
+        lastName: userJson['lastName'],
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_EMAIL_INVALID) {
+      _isAuthenticated = false;
+
+      SnakeBarWidget().snakeBar(
+        Utils.REGISTER,
+        ResponseCodes.MSG_USER_EMAIL_POLICY,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/registerView");
+
+      return User(
+        firstName: userJson['firstName'],
+        lastName: userJson['lastName'],
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_PASSWORD_INVALID) {
+      _isAuthenticated = false;
+
+      SnakeBarWidget().snakeBar(
+        Utils.REGISTER,
+        ResponseCodes.MSG_USER_PASSWORD_POLICY,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/registerView");
+
+      return User(
+        firstName: userJson['firstName'],
+        lastName: userJson['lastName'],
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_ALREADY_EXISTS) {
+      _isAuthenticated = false;
+
+      SnakeBarWidget().snakeBar(
+        Utils.REGISTER,
+        ResponseCodes.MSG_USER_ALREADY_EXIST,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/registerView");
+
+      return User(
+        firstName: userJson['firstName'],
+        lastName: userJson['lastName'],
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_CREATED) {
+      _isAuthenticated = true;
+
+      SnakeBarWidget().snakeBar(
+        Utils.REGISTER,
+        ResponseCodes.MSG_USER_SIGNUP_SUCCESSFULLY,
         FaIcon(
           FontAwesomeIcons.registered,
           color: Color(Utils.colorWhite),
-          size: Utils.size_26,
+          size: Utils.size_22,
         ),
         SnackPosition.TOP,
       );
+
       Get.toNamed("/loginView");
+
       return User(
+        firstName: userJson['firstName'],
+        lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
       );
-    } else if (responseCode == 'ERROR_404') {
+    } else if (responseCode == ResponseCodes.CODE_USER_SIGNUP_FAILED) {
       _isAuthenticated = false;
+
       SnakeBarWidget().snakeBar(
-        'ERROR_404',
-        'Registered 01',
+        Utils.REGISTER,
+        ResponseCodes.MSG_USER_SIGNUP_FAILED,
         FaIcon(
-          FontAwesomeIcons.algolia,
+          FontAwesomeIcons.circleExclamation,
           color: Color(Utils.colorWhite),
-          size: Utils.size_26,
+          size: Utils.size_22,
         ),
         SnackPosition.TOP,
       );
-      Get.toNamed("/registerUser");
+
+      Get.toNamed("/registerView");
+
       return User(
-        email: userJson['email'],
-        password: userJson['password'],
-      );
-    } else if (responseCode == 'ERROR_400') {
-      _isAuthenticated = false;
-      SnakeBarWidget().snakeBar(
-        'ERROR_404',
-        'Registered 01',
-        FaIcon(
-          FontAwesomeIcons.algolia,
-          color: Color(Utils.colorWhite),
-          size: Utils.size_26,
-        ),
-        SnackPosition.TOP,
-      );
-      Get.toNamed("/registerUser");
-      return User(
+        firstName: userJson['firstName'],
+        lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
       );
     } else {
       _isAuthenticated = false;
+
       SnakeBarWidget().snakeBar(
-        'else',
-        'Registered 01',
+        Utils.REGISTER,
+        ResponseCodes.MSG_SOMETHING_WENT_WRONG,
         FaIcon(
-          FontAwesomeIcons.algolia,
+          FontAwesomeIcons.circleExclamation,
           color: Color(Utils.colorWhite),
-          size: Utils.size_26,
+          size: Utils.size_22,
         ),
         SnackPosition.TOP,
       );
-      Get.toNamed("/registerUser");
-      throw Exception('Failed to login');
+
+      Get.toNamed("/registerView");
+
+      return User(
+        firstName: userJson['firstName'],
+        lastName: userJson['lastName'],
+        email: userJson['email'],
+        password: userJson['password'],
+      );
     }
   }
 
+  // LOGIN - SERVICE
   Future<User> login(String email, String password) async {
     final url = Uri.parse(Endpoints.login);
 
@@ -121,52 +235,186 @@ class AuthenticationService {
     final userJson = responseData['responseData']['user'];
     final responseCode = responseData['responseCode'];
 
-    if (responseCode == 'SUCCESS_202') {
-      _isAuthenticated = true;
-      Get.toNamed("/touristView");
+    if (responseCode == ResponseCodes.CODE_USER_INPUT_EMPTY) {
+      _isAuthenticated = false;
+
       SnakeBarWidget().snakeBar(
-        'SUCCESS_202',
-        'LOGIN 01',
+        Utils.LOGIN,
+        ResponseCodes.MSG_USER_PARAMETERS_INVALID,
         FaIcon(
-          FontAwesomeIcons.algolia,
+          FontAwesomeIcons.circleExclamation,
           color: Color(Utils.colorWhite),
-          size: Utils.size_26,
+          size: Utils.size_22,
         ),
         SnackPosition.TOP,
       );
+
+      Get.toNamed("/loginView");
+
       return User(
         email: userJson['email'],
         password: userJson['password'],
       );
-    } else if (responseCode == 'ERROR_404') {
+    } else if (responseCode == ResponseCodes.CODE_USER_PARAMETERS_INVALID) {
       _isAuthenticated = false;
+
       SnakeBarWidget().snakeBar(
-        'ERROR_404',
-        'login 01',
+        Utils.LOGIN,
+        ResponseCodes.MSG_USER_PARAMETERS_UNAVAILABLE,
         FaIcon(
-          FontAwesomeIcons.algolia,
+          FontAwesomeIcons.circleExclamation,
           color: Color(Utils.colorWhite),
-          size: Utils.size_26,
+          size: Utils.size_22,
         ),
         SnackPosition.TOP,
       );
+
+      Get.toNamed("/loginView");
+
+      return User(
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_EMAIL_INVALID) {
+      _isAuthenticated = false;
+
+      SnakeBarWidget().snakeBar(
+        Utils.LOGIN,
+        ResponseCodes.MSG_USER_EMAIL_POLICY,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/loginView");
+
+      return User(
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_PASSWORD_INVALID) {
+      _isAuthenticated = false;
+
+      SnakeBarWidget().snakeBar(
+        Utils.LOGIN,
+        ResponseCodes.MSG_USER_PASSWORD_POLICY,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/loginView");
+
+      return User(
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_NOT_FOUND) {
+      _isAuthenticated = false;
+
+      SnakeBarWidget().snakeBar(
+        Utils.LOGIN,
+        ResponseCodes.MSG_NO_USER_EXIST,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/loginView");
+
+      return User(
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_LOGIN) {
+      _isAuthenticated = true;
+
+      SnakeBarWidget().snakeBar(
+        Utils.LOGIN,
+        ResponseCodes.MSG_USER_LOGIN_SUCCESSFULLY,
+        FaIcon(
+          FontAwesomeIcons.userPlus,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/touristView");
+
+      return User(
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_PASSWORD_INVALID) {
+      _isAuthenticated = false;
+
+      SnakeBarWidget().snakeBar(
+        Utils.LOGIN,
+        ResponseCodes.MSG_USER_PASSWORD_INCORRECT,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/loginView");
+
+      return User(
+        email: userJson['email'],
+        password: userJson['password'],
+      );
+    } else if (responseCode == ResponseCodes.CODE_USER_LOGIN_FAILED) {
+      _isAuthenticated = false;
+
+      SnakeBarWidget().snakeBar(
+        Utils.LOGIN,
+        ResponseCodes.MSG_USER_LOGIN_FAILED,
+        FaIcon(
+          FontAwesomeIcons.circleExclamation,
+          color: Color(Utils.colorWhite),
+          size: Utils.size_22,
+        ),
+        SnackPosition.TOP,
+      );
+
+      Get.toNamed("/loginView");
+
       return User(
         email: userJson['email'],
         password: userJson['password'],
       );
     } else {
+      _isAuthenticated = false;
+
       SnakeBarWidget().snakeBar(
-        'else',
-        'login 01',
+        Utils.LOGIN,
+        ResponseCodes.MSG_SOMETHING_WENT_WRONG,
         FaIcon(
-          FontAwesomeIcons.algolia,
+          FontAwesomeIcons.circleExclamation,
           color: Color(Utils.colorWhite),
-          size: Utils.size_26,
+          size: Utils.size_22,
         ),
         SnackPosition.TOP,
       );
-      Get.toNamed("/registerUser");
-      throw Exception('Failed to login');
+
+      Get.toNamed("/registerView");
+
+      return User(
+        email: userJson['email'],
+        password: userJson['password'],
+      );
     }
   }
 
@@ -174,16 +422,24 @@ class AuthenticationService {
     _isAuthenticated = false;
     if (!_isAuthenticated) {
       SnakeBarWidget().snakeBar(
-        'logout()',
-        'logout 01',
+        Utils.LOGOUT,
+        ResponseCodes.MSG_USER_LOGOUT_SUCCESSFULLY,
         FaIcon(
-          FontAwesomeIcons.algolia,
+          FontAwesomeIcons.userSlash,
           color: Color(Utils.colorWhite),
-          size: Utils.size_26,
+          size: Utils.size_22,
         ),
         SnackPosition.TOP,
       );
       Get.toNamed('/loginView');
     }
+  }
+
+  bool get getAuthenticated {
+    return _isAuthenticated;
+  }
+
+  set setAuthenticated(bool isAuthenticated) {
+    isAuthenticated = _isAuthenticated;
   }
 }

@@ -40,26 +40,26 @@ class _LoginViewState extends State<LoginView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CommonWidgets().verticalSize(5),
+                  CommonWidgets().verticalSize(Utils.size_06),
                   Image.asset(
                     Utils.splashIcon1,
                     width: 200,
                     height: 200,
                   ),
-                  CommonWidgets().verticalSize(20),
+                  CommonWidgets().verticalSize(Utils.size_20),
                   FaIcon(
                     FontAwesomeIcons.unlockKeyhole,
                     color: Color(Utils.colorWhite),
                     size: Utils.size_100,
                   ),
-                  CommonWidgets().verticalSize(30),
+                  CommonWidgets().verticalSize(Utils.size_30),
                   Text(
                     Utils.loginViewSlogan,
                     style: TextStyle(
                         fontSize: Utils.size_18,
                         color: Color(Utils.colorWhite)),
                   ),
-                  CommonWidgets().verticalSize(20),
+                  CommonWidgets().verticalSize(Utils.size_20),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -67,20 +67,21 @@ class _LoginViewState extends State<LoginView> {
                           controller: _emailController,
                           hintText: Utils.emailHintText,
                           obsecureText: false),
-                      CommonWidgets().verticalSize(10),
+                      CommonWidgets().verticalSize(Utils.size_10),
                       TextFieldWidget(
                           controller: _passwordController,
                           hintText: Utils.passwordHintText,
                           obsecureText: true)
                     ],
                   ),
-                  CommonWidgets().verticalSize(10),
+                  CommonWidgets().verticalSize(Utils.size_10),
                   GestureDetector(
                     onTap: () {
                       Get.defaultDialog(
                           title: Utils.forgotPassword,
-                          titlePadding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
+                          titlePadding: EdgeInsets.symmetric(
+                              horizontal: Utils.size_10,
+                              vertical: Utils.size_10),
                           backgroundColor: Color(Utils.primaryColor),
                           middleTextStyle: TextStyle(fontSize: Utils.size_16),
                           middleText: 'I am dialogGetx');
@@ -93,7 +94,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                   ),
-                  CommonWidgets().verticalSize(10),
+                  CommonWidgets().verticalSize(Utils.size_10),
                   ButtonWidget(
                     onTap: () {
                       authenticationService.login(
@@ -103,7 +104,7 @@ class _LoginViewState extends State<LoginView> {
                     },
                     title: Utils.login,
                   ),
-                  CommonWidgets().verticalSize(25),
+                  CommonWidgets().verticalSize(Utils.size_24),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -116,7 +117,7 @@ class _LoginViewState extends State<LoginView> {
                             fontSize: Utils.size_18,
                           ),
                         ),
-                        CommonWidgets().horizontalSize(10),
+                        CommonWidgets().horizontalSize(Utils.size_10),
                         GestureDetector(
                           onTap: () {
                             Get.toNamed('/registerView');
@@ -132,7 +133,7 @@ class _LoginViewState extends State<LoginView> {
                       ],
                     ),
                   ),
-                  CommonWidgets().verticalSize(15),
+                  CommonWidgets().verticalSize(Utils.size_16),
                 ],
               ),
             ),

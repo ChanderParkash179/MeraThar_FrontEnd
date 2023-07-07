@@ -10,17 +10,26 @@ class SnakeBarWidget {
       error.toString(),
       warning.toString(),
       snackPosition: position,
-      icon: icon,
-      duration: const Duration(seconds: 3),
-      animationDuration: const Duration(seconds: 2),
-      borderRadius: 20,
+      icon: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: Utils.size_12,
+          vertical: Utils.size_12,
+        ),
+        child: icon,
+      ),
+      duration: Duration(seconds: Utils.size_04.toInt()),
+      animationDuration: Duration(seconds: Utils.size_02.toInt()),
+      borderRadius: Utils.size_20,
       dismissDirection: DismissDirection.horizontal,
       isDismissible: false,
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      margin: EdgeInsets.symmetric(
+        horizontal: Utils.size_10,
+        vertical: Utils.size_20,
+      ),
       backgroundGradient: LinearGradient(
         colors: [
-          Color(Utils.secondaryColor),
-          Color(Utils.primaryColor),
+          Color(Utils.primaryColor).withOpacity(0.75),
+          Color(Utils.secondaryColor).withOpacity(0.75),
         ],
       ),
     );

@@ -47,6 +47,9 @@ class Utils {
   static var OK = 'OK';
   static var CANCEL = 'CANCEL';
   static var SUCCESS = 'SUCCESS';
+  static var REGISTER = 'REGISTER';
+  static var LOGIN = 'LOGIN';
+  static var LOGOUT = 'LOGOUT';
 
   // PAGE NAMES
   static var touristView = 'Tourist View';

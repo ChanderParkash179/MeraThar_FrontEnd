@@ -3,7 +3,6 @@ import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Widgets/AppBackground.dart';
 import 'package:front_app/Widgets/ButtonImageWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
-import 'package:front_app/Widgets/HiddenDrawer.dart';
 import 'package:get/get.dart';
 
 class TouristView extends StatefulWidget {

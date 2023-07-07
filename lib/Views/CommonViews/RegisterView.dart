@@ -41,65 +41,65 @@ class _RegisterViewState extends State<RegisterView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CommonWidgets().verticalSize(5),
+                  CommonWidgets().verticalSize(Utils.size_06),
                   Image.asset(
                     Utils.splashIcon1,
                     width: 200,
                     height: 200,
                   ),
-                  CommonWidgets().verticalSize(20),
+                  CommonWidgets().verticalSize(Utils.size_20),
                   Icon(
                     Icons.app_registration,
                     color: Color(Utils.colorWhite),
                     size: Utils.size_100,
                   ),
-                  CommonWidgets().verticalSize(30),
+                  CommonWidgets().verticalSize(Utils.size_30),
                   Text(
                     Utils.registerViewSlogan,
                     style: TextStyle(
                         fontSize: Utils.size_18,
                         color: Color(Utils.colorWhite)),
                   ),
-                  CommonWidgets().verticalSize(20),
+                  CommonWidgets().verticalSize(Utils.size_20),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextFieldWidget(
-                          controller: _emailController,
-                          hintText: Utils.emailHintText,
-                          obsecureText: false),
-                      CommonWidgets().verticalSize(10),
-                      TextFieldWidget(
-                          controller: _passwordController,
-                          hintText: Utils.passwordHintText,
-                          obsecureText: true),
-                      CommonWidgets().verticalSize(10),
-                      TextFieldWidget(
                           controller: _firstNameController,
                           hintText: Utils.firstNameText,
                           obsecureText: false),
-                      CommonWidgets().verticalSize(10),
+                      CommonWidgets().verticalSize(Utils.size_10),
                       TextFieldWidget(
                           controller: _lastNameController,
                           hintText: Utils.lastNameText,
                           obsecureText: false),
+                      CommonWidgets().verticalSize(Utils.size_10),
+                      TextFieldWidget(
+                          controller: _emailController,
+                          hintText: Utils.emailHintText,
+                          obsecureText: false),
+                      CommonWidgets().verticalSize(Utils.size_10),
+                      TextFieldWidget(
+                          controller: _passwordController,
+                          hintText: Utils.passwordHintText,
+                          obsecureText: true),
                     ],
                   ),
-                  CommonWidgets().verticalSize(20),
+                  CommonWidgets().verticalSize(Utils.size_20),
                   ButtonWidget(
                     onTap: () {
                       setState(() {
                         authenticationService.register(
-                          _emailController.text,
-                          _passwordController.text,
                           _firstNameController.text,
                           _lastNameController.text,
+                          _emailController.text,
+                          _passwordController.text,
                         );
                       });
                     },
                     title: Utils.register,
                   ),
-                  CommonWidgets().verticalSize(25),
+                  CommonWidgets().verticalSize(Utils.size_24),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -111,7 +111,7 @@ class _RegisterViewState extends State<RegisterView> {
                           fontSize: Utils.size_18,
                         ),
                       ),
-                      CommonWidgets().horizontalSize(10),
+                      CommonWidgets().horizontalSize(Utils.size_10),
                       GestureDetector(
                         onTap: () {
                           Get.toNamed('/loginView');
@@ -126,7 +126,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                     ],
                   ),
-                  CommonWidgets().verticalSize(15),
+                  CommonWidgets().verticalSize(Utils.size_14),
                 ],
               ),
             ),
