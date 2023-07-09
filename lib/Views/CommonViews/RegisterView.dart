@@ -41,12 +41,6 @@ class _RegisterViewState extends State<RegisterView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CommonWidgets().verticalSize(Utils.size_06),
-                  Image.asset(
-                    Utils.splashIcon1,
-                    width: 200,
-                    height: 200,
-                  ),
                   CommonWidgets().verticalSize(Utils.size_20),
                   Icon(
                     Icons.app_registration,

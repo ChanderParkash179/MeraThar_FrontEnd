@@ -418,7 +418,7 @@ class AuthenticationService {
     }
   }
 
-  void logout() {
+  void logout() async {
     _isAuthenticated = false;
     if (!_isAuthenticated) {
       SnakeBarWidget().snakeBar(
@@ -433,13 +433,5 @@ class AuthenticationService {
       );
       Get.toNamed('/loginView');
     }
-  }
-
-  bool get getAuthenticated {
-    return _isAuthenticated;
-  }
-
-  set setAuthenticated(bool isAuthenticated) {
-    isAuthenticated = _isAuthenticated;
   }
 }

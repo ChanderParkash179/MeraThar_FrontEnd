@@ -6,6 +6,7 @@ import 'package:front_app/Widgets/CommonWidgets.dart';
 import 'package:front_app/Widgets/TextFieldWidget.dart';
 import 'package:get/get.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -19,6 +20,27 @@ class _LoginViewState extends State<LoginView> {
   final _passwordController = TextEditingController();
 
   final AuthenticationService authenticationService = AuthenticationService();
+
+  @override
+  void initState() {
+    super.initState();
+    isLoggedIn();
+  }
+
+  void isLoggedIn() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    var isLogged = sp.getBool(Utils.KEY_LOGIN);
+
+    if (isLogged != null) {
+      if (isLogged) {
+        Get.toNamed("/touristView");
+      } else {
+        Get.toNamed("/loginView");
+      }
+    } else {
+      Get.toNamed("/loginView");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +63,6 @@ class _LoginViewState extends State<LoginView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CommonWidgets().verticalSize(Utils.size_06),
-                  Image.asset(
-                    Utils.splashIcon1,
-                    width: 200,
-                    height: 200,
-                  ),
-                  CommonWidgets().verticalSize(Utils.size_20),
                   FaIcon(
                     FontAwesomeIcons.unlockKeyhole,
                     color: Color(Utils.colorWhite),
@@ -96,11 +112,17 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   CommonWidgets().verticalSize(Utils.size_10),
                   ButtonWidget(
-                    onTap: () {
+                    onTap: () async {
                       authenticationService.login(
                         _emailController.text,
                         _passwordController.text,
                       );
+
+                      SharedPreferences sp =
+                          await SharedPreferences.getInstance();
+                      sp.setBool(Utils.KEY_LOGIN, true);
+                      sp.setString(
+                          Utils.EMAIL, _emailController.text.toString());
                     },
                     title: Utils.login,
                   ),

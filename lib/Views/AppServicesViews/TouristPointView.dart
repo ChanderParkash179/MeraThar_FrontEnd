@@ -27,7 +27,6 @@ class _TouristPointViewState extends State<TouristPointView> {
 
   @override
   Widget build(BuildContext context) {
-    final Padding? padding;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(

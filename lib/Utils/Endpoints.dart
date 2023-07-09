@@ -5,6 +5,7 @@ class Endpoints {
   static var login = 'http://localhost:8081/api/mera_thar/user/login';
   static var register = 'http://localhost:8081/api/mera_thar/user/register';
   static var forgotPassword = 'http://localhost:8081/api/mera_thar/user/forgot';
+  static var socialUser = 'http://localhost:8081/api/mera_thar/user/social';
 
   // ADMIN ENDPOINTS
   static var adminList = 'http://localhost:8081/api/mera_thar/admin/list';

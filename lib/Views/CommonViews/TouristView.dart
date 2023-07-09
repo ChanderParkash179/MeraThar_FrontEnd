@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:front_app/Utils/Utils.dart';
+import 'package:front_app/Views/CommonViews/LoginView.dart';
 import 'package:front_app/Widgets/AppBackground.dart';
 import 'package:front_app/Widgets/ButtonImageWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
+import 'package:front_app/Widgets/DrawerWidget.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TouristView extends StatefulWidget {
   const TouristView({Key? key}) : super(key: key);
@@ -13,10 +16,29 @@ class TouristView extends StatefulWidget {
 }
 
 class _TouristViewState extends State<TouristView> {
+  String? userEmail;
+  bool? isLoggedIn;
+
+  void isLogin() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    var email = sp.getString(Utils.EMAIL).toString();
+
+    setState(() {
+      userEmail = email;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState;
+    isLogin();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: DrawerWidget(email: userEmail.toString()),
         appBar: AppBar(
           title: Text(
             Utils.citiesPage.toUpperCase(),

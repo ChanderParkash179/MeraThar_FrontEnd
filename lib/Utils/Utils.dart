@@ -1,9 +1,5 @@
 class Utils {
   // VARIABLES & STRINGS
-  static var invalidPassword = 'invalid password!';
-  static var registeredSuccessfully = 'User Registered Successfully!';
-  static var loginSuccessfully = 'User Logged in Successfully!';
-
   static var adminPageTitle = 'Admin Page';
 
   static var appTitle = 'Mera Thar';
@@ -12,7 +8,6 @@ class Utils {
   static var login = 'Login';
   static var register = 'Register';
   static var forgotPassword = 'Forgot Password?';
-  static var error = 'ERROR';
   static var readMore = 'Read more...';
 
   static var loginViewSlogan = 'Welcome Back You\'ve been Missed!';
@@ -25,9 +20,7 @@ class Utils {
   static var alreadyRegisterMsg = 'Already have an Account';
 
   static var registerViewSlogan = 'Welcome on your Onboarding!';
-
-  static var registerWarning = 'Invalid -or- Empty Credentials';
-  static var loginWarning = 'Invalid User -or- Invalid User Credentials';
+  static var signInWithGoogle = 'Sign in with Google';
 
   static var all = 'Users';
   static var add = 'Add';
@@ -50,6 +43,9 @@ class Utils {
   static var REGISTER = 'REGISTER';
   static var LOGIN = 'LOGIN';
   static var LOGOUT = 'LOGOUT';
+  static var GOOGLE = 'GOOGLE';
+  static var EMAIL = 'EMAIL';
+  static var KEY_LOGIN = 'KEY_LOGIN';
 
   // PAGE NAMES
   static var touristView = 'Tourist View';
@@ -142,7 +138,10 @@ class Utils {
   static var umerkot_icon_img = 'assets/images/umerkot_btn_img.png';
   static var mithi_icon_img = 'assets/images/mithi_btn_img.png';
   static var nagarparkar_icon_img = 'assets/images/nagarparkar_btn_img.png';
+
   static var bg_img = 'assets/images/bg_img.jpg';
+
+  static var googleImg = 'assets/images/google.png';
 
   // HEADERS
   static var header = {'Content-Type': 'application/json'};

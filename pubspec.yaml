@@ -17,8 +17,7 @@ dependencies:
   google_fonts: ^4.0.4
   url_launcher: ^6.0.3
   font_awesome_flutter: ^10.4.0
-  webview_flutter: ^4.2.2
-  hidden_drawer_menu: ^3.0.1
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   flutter_test:
