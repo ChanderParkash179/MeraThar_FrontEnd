@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Views/CommonViews/LoginView.dart';
 import 'package:front_app/Widgets/AppBackground.dart';
+import 'package:front_app/Widgets/BottomNavBarWidget.dart';
 import 'package:front_app/Widgets/ButtonImageWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
 import 'package:front_app/Widgets/DrawerWidget.dart';
@@ -38,6 +39,7 @@ class _TouristViewState extends State<TouristView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: const BottomNavBarWidget(),
         drawer: DrawerWidget(email: userEmail.toString()),
         appBar: AppBar(
           title: Text(
@@ -55,41 +57,43 @@ class _TouristViewState extends State<TouristView> {
         body: AppBackground(
           padding: Padding(
             padding: EdgeInsets.all(Utils.size_10),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ButtonImageWidget(
-                    onTap: () {
-                      setState(() {
-                        Get.toNamed('/umerkotView');
-                      });
-                    },
-                    imagePath: Utils.umerkot_icon_img,
-                    title: Utils.umerkot.toUpperCase(),
-                  ),
-                  CommonWidgets().verticalSize(Utils.size_12),
-                  ButtonImageWidget(
-                    onTap: () {
-                      setState(() {
-                        Get.toNamed('/mithiView');
-                      });
-                    },
-                    imagePath: Utils.mithi_icon_img,
-                    title: Utils.mithi.toUpperCase(),
-                  ),
-                  CommonWidgets().verticalSize(Utils.size_12),
-                  ButtonImageWidget(
-                    onTap: () {
-                      setState(() {
-                        Get.toNamed('/nagarparkarView');
-                      });
-                    },
-                    imagePath: Utils.nagarparkar_icon_img,
-                    title: Utils.nagarparkar.toUpperCase(),
-                  ),
-                ],
+            child: SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ButtonImageWidget(
+                      onTap: () {
+                        setState(() {
+                          Get.toNamed('/umerkotView');
+                        });
+                      },
+                      imagePath: Utils.umerkot_icon_img,
+                      title: Utils.umerkot.toUpperCase(),
+                    ),
+                    CommonWidgets().verticalSize(Utils.size_12),
+                    ButtonImageWidget(
+                      onTap: () {
+                        setState(() {
+                          Get.toNamed('/mithiView');
+                        });
+                      },
+                      imagePath: Utils.mithi_icon_img,
+                      title: Utils.mithi.toUpperCase(),
+                    ),
+                    CommonWidgets().verticalSize(Utils.size_12),
+                    ButtonImageWidget(
+                      onTap: () {
+                        setState(() {
+                          Get.toNamed('/nagarparkarView');
+                        });
+                      },
+                      imagePath: Utils.nagarparkar_icon_img,
+                      title: Utils.nagarparkar.toUpperCase(),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

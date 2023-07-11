@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:front_app/Model/TouristPointModel/TouristPoint.dart';
 import 'package:front_app/Service/TouristPointService.dart';
 import 'package:front_app/Utils/Utils.dart';
+import 'package:front_app/Widgets/BottomNavBarWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
 import 'package:front_app/Widgets/GlassBox.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,6 +30,7 @@ class _TouristPointViewState extends State<TouristPointView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: const BottomNavBarWidget(),
         appBar: AppBar(
           title: Text(
             Utils.visitingPoint.toUpperCase(),

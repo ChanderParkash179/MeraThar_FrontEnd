@@ -7,6 +7,7 @@ import 'package:front_app/Views/AppServicesViews/RestaurantView.dart';
 import 'package:front_app/Views/AppServicesViews/TouristPointView.dart';
 import 'package:front_app/Views/AppServicesViews/TravelingView.dart';
 import 'package:front_app/Widgets/AppBackground.dart';
+import 'package:front_app/Widgets/BottomNavBarWidget.dart';
 import 'package:front_app/Widgets/GridViewButtonWidget.dart';
 import 'package:get/get.dart';
 
@@ -22,6 +23,7 @@ class _NagarParkarViewState extends State<NagarParkarView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: const BottomNavBarWidget(),
         appBar: AppBar(
           title: Text(
             Utils.nagarparkar.toUpperCase(),

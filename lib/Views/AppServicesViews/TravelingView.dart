@@ -4,6 +4,7 @@ import 'package:front_app/Model/TravelingModel/Vehilce.dart';
 import 'package:front_app/Service/TravelingService.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Widgets/AppBackground.dart';
+import 'package:front_app/Widgets/BottomNavBarWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
 import 'package:front_app/Widgets/GlassBox.dart';
 
@@ -31,6 +32,7 @@ class _TravelingViewState extends State<TravelingView> {
     final Padding? padding;
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: const BottomNavBarWidget(),
         appBar: AppBar(
           title: Text(
             Utils.traveling.toUpperCase(),

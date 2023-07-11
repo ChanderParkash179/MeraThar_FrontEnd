@@ -46,6 +46,8 @@ class Utils {
   static var GOOGLE = 'GOOGLE';
   static var EMAIL = 'EMAIL';
   static var KEY_LOGIN = 'KEY_LOGIN';
+  static var PROFILE = 'PROFILE';
+  static var HOME = 'HOME';
 
   // PAGE NAMES
   static var touristView = 'Tourist View';

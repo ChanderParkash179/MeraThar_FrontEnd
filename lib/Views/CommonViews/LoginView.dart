@@ -22,27 +22,6 @@ class _LoginViewState extends State<LoginView> {
   final AuthenticationService authenticationService = AuthenticationService();
 
   @override
-  void initState() {
-    super.initState();
-    isLoggedIn();
-  }
-
-  void isLoggedIn() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    var isLogged = sp.getBool(Utils.KEY_LOGIN);
-
-    if (isLogged != null) {
-      if (isLogged) {
-        Get.toNamed("/touristView");
-      } else {
-        Get.toNamed("/loginView");
-      }
-    } else {
-      Get.toNamed("/loginView");
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(

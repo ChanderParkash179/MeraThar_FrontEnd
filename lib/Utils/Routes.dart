@@ -7,6 +7,7 @@ import 'package:front_app/Views/CitiesViews/MithiView.dart';
 import 'package:front_app/Views/CitiesViews/NagarParkarView.dart';
 import 'package:front_app/Views/CitiesViews/UmerkotView.dart';
 import 'package:front_app/Views/CommonViews/LoginView.dart';
+import 'package:front_app/Views/CommonViews/ProfileView.dart';
 import 'package:front_app/Views/CommonViews/RegisterView.dart';
 import 'package:front_app/Views/CommonViews/SplashView.dart';
 import 'package:front_app/Views/CommonViews/TouristView.dart';
@@ -20,6 +21,7 @@ class Routes {
     GetPage(name: '/loginView', page: () => const LoginView()),
     GetPage(name: '/registerView', page: () => const RegisterView()),
     GetPage(name: '/touristView', page: () => const TouristView()),
+    GetPage(name: '/profileView', page: () => const ProfileView()),
 
     // CITIES PAGE
     GetPage(name: '/umerkotView', page: () => const UmerkotView()),

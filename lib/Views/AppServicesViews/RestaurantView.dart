@@ -3,6 +3,7 @@ import 'package:front_app/Service/RestaurantService.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Model/RestaurantModel/Restaurant.dart';
 import 'package:front_app/Widgets/AppBackground.dart';
+import 'package:front_app/Widgets/BottomNavBarWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
 import 'package:front_app/Widgets/GlassBox.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -30,6 +31,7 @@ class _RestaurantViewState extends State<RestaurantView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: const BottomNavBarWidget(),
         appBar: AppBar(
           title: Text(
             Utils.restaurant.toUpperCase(),
