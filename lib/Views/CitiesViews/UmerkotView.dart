@@ -6,13 +6,10 @@ import 'package:front_app/Views/AppServicesViews/HotelView.dart';
 import 'package:front_app/Views/AppServicesViews/RestaurantView.dart';
 import 'package:front_app/Views/AppServicesViews/TouristPointView.dart';
 import 'package:front_app/Views/AppServicesViews/TravelingView.dart';
-import 'package:front_app/Views/CommonViews/LoginView.dart';
 import 'package:front_app/Widgets/AppBackground.dart';
 import 'package:front_app/Widgets/BottomNavBarWidget.dart';
-import 'package:front_app/Widgets/DrawerWidget.dart';
 import 'package:front_app/Widgets/GridViewButtonWidget.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class UmerkotView extends StatefulWidget {
   const UmerkotView({Key? key}) : super(key: key);
@@ -22,8 +19,6 @@ class UmerkotView extends StatefulWidget {
 }
 
 class _UmerkotViewState extends State<UmerkotView> {
-  String? userEmail;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

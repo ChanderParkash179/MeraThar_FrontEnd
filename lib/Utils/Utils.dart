@@ -134,7 +134,8 @@ class Utils {
 
   static var googleImg = 'assets/images/google.png';
 
-  static var profileImage = 'assets/images/profileImage.png';
+  static var maleGenderImage = 'assets/images/maleGenderImage.png';
+  static var femaleGenderImage = 'assets/images/femaleGenderImage.png';
 
   // HEADERS
   static var header = {'Content-Type': 'application/json'};
@@ -142,7 +143,12 @@ class Utils {
   // CAPS USER WORDS
   static var FIRSTNAME = 'FIRST NAME';
   static var LASTNAME = 'LAST NAME';
-  
+
+  static var USER_FIRSTNAME = 'FIRSTNAME';
+  static var USER_LASTNAME = 'LASTNAME';
+  static var USER_EMAIL = 'EMAIL';
+  static var USER_GENDER = 'GENDER';
+
   // CAPS WORDS
   static var OK = 'OK';
   static var CANCEL = 'CANCEL';

@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:front_app/Model/UserModel/User.dart';
+import 'package:front_app/Service/UserService.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Widgets/AppBackground.dart';
 import 'package:front_app/Widgets/BottomNavBarWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
 import 'package:front_app/Widgets/ProfileItemWidget.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -15,6 +19,39 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
+  UserService userService = UserService();
+  User? user;
+  String? firstName, lastName, userEmail, gender, genderProfile;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchUserDetails();
+  }
+
+  Future<void> fetchUserDetails() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    String? email = sp.getString(Utils.USER_EMAIL);
+    try {
+      final user = await userService.findByEmail(email.toString());
+      setState(() {
+        this.user = user;
+        firstName = user.firstName;
+        lastName = user.lastName;
+        userEmail = user.email;
+        gender = user.gender;
+
+        if (gender == Utils.MALE) {
+          genderProfile = Utils.maleGenderImage;
+        } else {
+          genderProfile = Utils.femaleGenderImage;
+        }
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,26 +71,30 @@ class _ProfileViewState extends State<ProfileView> {
       ),
       body: AppBackground(
         padding: Padding(
-          padding: EdgeInsets.all(Utils.size_20),
+          padding: EdgeInsets.symmetric(horizontal: Utils.size_06),
           child: Column(
             children: [
               CommonWidgets().verticalSize(Utils.size_40),
               CircleAvatar(
                 radius: Utils.size_70,
-                backgroundImage: AssetImage(Utils.profileImage),
+                backgroundImage: AssetImage(genderProfile.toString()),
               ),
               CommonWidgets().verticalSize(Utils.size_20),
               ProfileItemWidget.profileItem(
-                  Utils.FIRSTNAME, 'Ahad Hashmi', FontAwesomeIcons.user),
+                  Utils.FIRSTNAME, firstName.toString(), FontAwesomeIcons.user),
               CommonWidgets().verticalSize(Utils.size_10),
               ProfileItemWidget.profileItem(
-                  Utils.LASTNAME, 'Hashmi', FontAwesomeIcons.user),
+                  Utils.LASTNAME, lastName.toString(), FontAwesomeIcons.user),
               CommonWidgets().verticalSize(Utils.size_10),
               ProfileItemWidget.profileItem(
-                  Utils.EMAIL, 'test@gmail.com', CupertinoIcons.mail),
+                  Utils.EMAIL, userEmail.toString(), CupertinoIcons.mail),
               CommonWidgets().verticalSize(Utils.size_10),
               ProfileItemWidget.profileItem(
-                  Utils.GENDER, 'FEMALE', FontAwesomeIcons.venusMars),
+                  Utils.GENDER,
+                  gender.toString(),
+                  gender.toString() == Utils.MALE
+                      ? FontAwesomeIcons.mars
+                      : FontAwesomeIcons.venus),
               CommonWidgets().verticalSize(Utils.size_10),
             ],
           ),

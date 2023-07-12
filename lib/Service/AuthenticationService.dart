@@ -11,6 +11,7 @@ import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Widgets/SnakeBarWidget.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthenticationService {
   bool _isAuthenticated = false;
@@ -167,6 +168,11 @@ class AuthenticationService {
         SnackPosition.TOP,
       );
 
+      SharedPreferences sp = await SharedPreferences.getInstance();
+      sp.setString(Utils.USER_FIRSTNAME, userJson['firstName']);
+      sp.setString(Utils.USER_LASTNAME, userJson['lastName']);
+      sp.setString(Utils.USER_EMAIL, userJson['email']);
+      sp.setString(Utils.USER_GENDER, userJson['gender']);
       Get.toNamed("/loginView");
 
       return User(
@@ -359,6 +365,12 @@ class AuthenticationService {
       );
 
       Get.toNamed("/touristView");
+
+      SharedPreferences sp = await SharedPreferences.getInstance();
+      sp.setString(Utils.USER_FIRSTNAME, userJson['firstName']);
+      sp.setString(Utils.USER_LASTNAME, userJson['lastName']);
+      sp.setString(Utils.USER_EMAIL, userJson['email']);
+      sp.setString(Utils.USER_GENDER, userJson['gender']);
 
       return User(
         email: userJson['email'],

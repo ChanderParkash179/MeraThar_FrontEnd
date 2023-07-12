@@ -5,6 +5,7 @@ class ResponseCodes {
   // USER
   static var CODE_USER_LOGIN = "SUCCESS_200";
   static var CODE_USER_CREATED = "SUCCESS_201";
+  static var CODE_USER_FOUND = "SUCCESS_202";
   static var CODE_USER_ALREADY_EXISTS = "ERROR_203";
   static var CODE_USER_INPUT_EMPTY = "ERROR_204";
   static var CODE_USER_SIGNUP_FAILED = "ERROR_400";
@@ -32,6 +33,7 @@ class ResponseCodes {
   static var MSG_USER_EMAIL_POLICY = "Provided Email doesn't meet the policy";
   static var MSG_USER_PASSWORD_POLICY = "Provided Password doesn't meet the policy";
   static var MSG_USER_LOGOUT_SUCCESSFULLY = "User is Logout Successfully!";
+  static var MSG_USER_FOUND_SUCCESSFULLY = "Requested User Found Successfully!";
 
   // GENERAL
   static var MSG_SOMETHING_WENT_WRONG = "Something went Wrong!";
