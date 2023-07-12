@@ -1,6 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:front_app/Utils/Utils.dart';
+import 'package:front_app/Widgets/AppBackground.dart';
 import 'package:front_app/Widgets/BottomNavBarWidget.dart';
+import 'package:front_app/Widgets/CommonWidgets.dart';
+import 'package:front_app/Widgets/ProfileItemWidget.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -27,9 +32,31 @@ class _ProfileViewState extends State<ProfileView> {
         elevation: 0,
         backgroundColor: Color(Utils.primaryColor),
       ),
-      body: Container(
-        child: Center(
-          child: Text(Utils.PROFILE),
+      body: AppBackground(
+        padding: Padding(
+          padding: EdgeInsets.all(Utils.size_20),
+          child: Column(
+            children: [
+              CommonWidgets().verticalSize(Utils.size_40),
+              CircleAvatar(
+                radius: Utils.size_70,
+                backgroundImage: AssetImage(Utils.profileImage),
+              ),
+              CommonWidgets().verticalSize(Utils.size_20),
+              ProfileItemWidget.profileItem(
+                  Utils.FIRSTNAME, 'Ahad Hashmi', FontAwesomeIcons.user),
+              CommonWidgets().verticalSize(Utils.size_10),
+              ProfileItemWidget.profileItem(
+                  Utils.LASTNAME, 'Hashmi', FontAwesomeIcons.user),
+              CommonWidgets().verticalSize(Utils.size_10),
+              ProfileItemWidget.profileItem(
+                  Utils.EMAIL, 'test@gmail.com', CupertinoIcons.mail),
+              CommonWidgets().verticalSize(Utils.size_10),
+              ProfileItemWidget.profileItem(
+                  Utils.GENDER, 'FEMALE', FontAwesomeIcons.venusMars),
+              CommonWidgets().verticalSize(Utils.size_10),
+            ],
+          ),
         ),
       ),
     );

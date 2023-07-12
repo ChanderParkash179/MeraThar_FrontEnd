@@ -37,18 +37,6 @@ class Utils {
   static var userAddedSuccess = 'User Added Successfully!';
   static var somethingWentWrong = 'Something went Wrong!';
 
-  static var OK = 'OK';
-  static var CANCEL = 'CANCEL';
-  static var SUCCESS = 'SUCCESS';
-  static var REGISTER = 'REGISTER';
-  static var LOGIN = 'LOGIN';
-  static var LOGOUT = 'LOGOUT';
-  static var GOOGLE = 'GOOGLE';
-  static var EMAIL = 'EMAIL';
-  static var KEY_LOGIN = 'KEY_LOGIN';
-  static var PROFILE = 'PROFILE';
-  static var HOME = 'HOME';
-
   // PAGE NAMES
   static var touristView = 'Tourist View';
   static var visitingPointView = 'Location View';
@@ -110,6 +98,7 @@ class Utils {
   static double size_50 = 50.0;
   static double size_54 = 54.0;
   static double size_60 = 60.0;
+  static double size_70 = 70.0;
   static double size_80 = 80.0;
   static double size_100 = 100.0;
   static double size_200 = 200.0;
@@ -145,6 +134,31 @@ class Utils {
 
   static var googleImg = 'assets/images/google.png';
 
+  static var profileImage = 'assets/images/profileImage.png';
+
   // HEADERS
   static var header = {'Content-Type': 'application/json'};
+
+  // CAPS USER WORDS
+  static var FIRSTNAME = 'FIRST NAME';
+  static var LASTNAME = 'LAST NAME';
+  
+  // CAPS WORDS
+  static var OK = 'OK';
+  static var CANCEL = 'CANCEL';
+  static var SUCCESS = 'SUCCESS';
+  static var REGISTER = 'REGISTER';
+  static var LOGIN = 'LOGIN';
+  static var LOGOUT = 'LOGOUT';
+  static var GOOGLE = 'GOOGLE';
+  static var EMAIL = 'EMAIL';
+  static var KEY_LOGIN = 'KEY_LOGIN';
+  static var PROFILE = 'PROFILE';
+  static var HOME = 'HOME';
+
+  // GENDERS
+  static var GENDER = 'GENDER';
+  static var MALE = 'MALE';
+  static var FEMALE = 'FEMALE';
+  static var OTHER = 'OTHER';
 }

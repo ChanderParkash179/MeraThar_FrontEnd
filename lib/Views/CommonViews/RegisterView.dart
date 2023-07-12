@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front_app/Service/AuthenticationService.dart';
+import 'package:front_app/Service/UserService.dart';
 import 'package:front_app/Utils/Utils.dart';
 import 'package:front_app/Widgets/ButtonWidget.dart';
 import 'package:front_app/Widgets/CommonWidgets.dart';
@@ -14,12 +15,15 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
+  final AuthenticationService authenticationService = AuthenticationService();
+
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
 
-  final AuthenticationService authenticationService = AuthenticationService();
+  final UserService userService = UserService();
+  String? _selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +81,36 @@ class _RegisterViewState extends State<RegisterView> {
                           controller: _passwordController,
                           hintText: Utils.passwordHintText,
                           obsecureText: true),
+                      CommonWidgets().verticalSize(Utils.size_10),
+                      Row(
+                        children: [
+                          for (String gender in userService.genders)
+                            Expanded(
+                              child: RadioListTile<String>(
+                                title: Text(
+                                  gender,
+                                  style: TextStyle(
+                                    fontSize: Utils.size_12,
+                                    color: Color(
+                                      Utils.colorWhite,
+                                    ),
+                                  ),
+                                ),
+                                selectedTileColor: Color(Utils.primaryColor),
+                                activeColor: Color(Utils.primaryColor),
+                                tileColor: Color(Utils.primaryColor),
+                                value: gender,
+                                groupValue: _selectedGender,
+                                onChanged: (value) {
+                                  setState(() {
+                                    _selectedGender = value;
+                                    print(_selectedGender);
+                                  });
+                                },
+                              ),
+                            ),
+                        ],
+                      ),
                     ],
                   ),
                   CommonWidgets().verticalSize(Utils.size_20),
@@ -84,11 +118,11 @@ class _RegisterViewState extends State<RegisterView> {
                     onTap: () {
                       setState(() {
                         authenticationService.register(
-                          _firstNameController.text,
-                          _lastNameController.text,
-                          _emailController.text,
-                          _passwordController.text,
-                        );
+                            _firstNameController.text,
+                            _lastNameController.text,
+                            _emailController.text,
+                            _passwordController.text,
+                            _selectedGender.toString());
                       });
                     },
                     title: Utils.register,

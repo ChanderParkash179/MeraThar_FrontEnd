@@ -16,8 +16,8 @@ class AuthenticationService {
   bool _isAuthenticated = false;
 
   // REGISTER - SERVICE
-  Future<User> register(
-      String firstName, String lastName, String email, String password) async {
+  Future<User> register(String firstName, String lastName, String email,
+      String password, String gender) async {
     final url = Uri.parse(Endpoints.register);
 
     final requestBody = {
@@ -25,6 +25,7 @@ class AuthenticationService {
       'lastName': lastName,
       'email': email,
       'password': password,
+      'gender': gender,
     };
 
     final response = await http.post(
@@ -58,6 +59,7 @@ class AuthenticationService {
         lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
+        gender: userJson['gender'],
       );
     } else if (responseCode == ResponseCodes.CODE_USER_PARAMETERS_INVALID) {
       _isAuthenticated = false;
@@ -80,6 +82,7 @@ class AuthenticationService {
         lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
+        gender: userJson['gender'],
       );
     } else if (responseCode == ResponseCodes.CODE_USER_EMAIL_INVALID) {
       _isAuthenticated = false;
@@ -102,6 +105,7 @@ class AuthenticationService {
         lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
+        gender: userJson['gender'],
       );
     } else if (responseCode == ResponseCodes.CODE_USER_PASSWORD_INVALID) {
       _isAuthenticated = false;
@@ -124,6 +128,7 @@ class AuthenticationService {
         lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
+        gender: userJson['gender'],
       );
     } else if (responseCode == ResponseCodes.CODE_USER_ALREADY_EXISTS) {
       _isAuthenticated = false;
@@ -146,6 +151,7 @@ class AuthenticationService {
         lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
+        gender: userJson['gender'],
       );
     } else if (responseCode == ResponseCodes.CODE_USER_CREATED) {
       _isAuthenticated = true;
@@ -168,6 +174,7 @@ class AuthenticationService {
         lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
+        gender: userJson['gender'],
       );
     } else if (responseCode == ResponseCodes.CODE_USER_SIGNUP_FAILED) {
       _isAuthenticated = false;
@@ -190,6 +197,7 @@ class AuthenticationService {
         lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
+        gender: userJson['gender'],
       );
     } else {
       _isAuthenticated = false;
@@ -212,6 +220,7 @@ class AuthenticationService {
         lastName: userJson['lastName'],
         email: userJson['email'],
         password: userJson['password'],
+        gender: userJson['gender'],
       );
     }
   }
