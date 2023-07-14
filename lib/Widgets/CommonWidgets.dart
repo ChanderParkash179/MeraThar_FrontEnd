@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CommonWidgets {
-  SizedBox horizontalSize(var width) {
+  SizedBox horizontalSize(double width) {
     return SizedBox(width: width);
   }
 
-  SizedBox verticalSize(var height) {
+  SizedBox verticalSize(double height) {
     return SizedBox(height: height);
   }
 }
