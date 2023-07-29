@@ -104,7 +104,6 @@ class _RegisterViewState extends State<RegisterView> {
                                 onChanged: (value) {
                                   setState(() {
                                     _selectedGender = value;
-                                    print(_selectedGender);
                                   });
                                 },
                               ),

@@ -29,7 +29,7 @@ class AppBackground extends StatelessWidget {
                 image: DecorationImage(
               image: AssetImage(Utils.bg_img),
               fit: BoxFit.cover,
-              opacity: .4,
+              // opacity: .1,
             )
                 // gradient: LinearGradient(
                 //   begin: Alignment.topRight,
