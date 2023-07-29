@@ -1,57 +1,57 @@
 class Endpoints {
-  static var baseUrl = 'http://locahost:8081/api/mera_thar/';
+  static var baseUrl = 'https://meratharbackend-production.up.railway.app/api/mera_thar/';
 
   // USER ENDPOINTS
-  static var login = 'http://localhost:8081/api/mera_thar/user/login';
-  static var register = 'http://localhost:8081/api/mera_thar/user/register';
-  static var email = 'http://localhost:8081/api/mera_thar/user/email';
-  static var forgotPassword = 'http://localhost:8081/api/mera_thar/user/forgot';
-  static var socialUser = 'http://localhost:8081/api/mera_thar/user/social';
+  static var login = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/login';
+  static var register = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/register';
+  static var email = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/email';
+  static var forgotPassword = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/forgot';
+  static var socialUser = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/social';
 
   // ADMIN ENDPOINTS
-  static var adminList = 'http://localhost:8081/api/mera_thar/admin/list';
-  static var adminGet = 'http://localhost:8081/api/mera_thar/admin/get';
-  static var adminAdd = 'http://localhost:8081/api/mera_thar/admin/add';
-  static var adminUpdate = 'http://localhost:8081/api/mera_thar/admin/update';
-  static var adminDelete = 'http://localhost:8081/api/mera_thar/admin/delete';
+  static var adminList = 'https://meratharbackend-production.up.railway.app/api/mera_thar/admin/list';
+  static var adminGet = 'https://meratharbackend-production.up.railway.app/api/mera_thar/admin/get';
+  static var adminAdd = 'https://meratharbackend-production.up.railway.app/api/mera_thar/admin/add';
+  static var adminUpdate = 'https://meratharbackend-production.up.railway.app/api/mera_thar/admin/update';
+  static var adminDelete = 'https://meratharbackend-production.up.railway.app/api/mera_thar/admin/delete';
 
   // CITY ENDPOINTS
-  static var cityList = 'http://localhost:8081/api/mera_thar/city/list';
-  static var cityGet = 'http://localhost:8081/api/mera_thar/city/get';
-  static var cityAdd = 'http://localhost:8081/api/mera_thar/city/add';
-  static var cityUpdate = 'http://localhost:8081/api/mera_thar/city/update';
-  static var cityDelete = 'http://localhost:8081/api/mera_thar/city/delete';
+  static var cityList = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/list';
+  static var cityGet = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/get';
+  static var cityAdd = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/add';
+  static var cityUpdate = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/update';
+  static var cityDelete = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/delete';
 
   // TOURIST POINT ENDPOINTS
-  static var touristPointList = 'http://localhost:8081/api/mera_thar/city/tourist-point/list';
-  static var touristPointGet = 'http://localhost:8081/api/mera_thar/city/tourist-point/get';
-  static var touristPointGetWithCityName = 'http://localhost:8081/api/mera_thar/city/tourist-point/get/city-name';
-  static var touristPointAdd = 'http://localhost:8081/api/mera_thar/city/tourist-point/add';
-  static var touristPointUpdate = 'http://localhost:8081/api/mera_thar/city/tourist-point/update';
-  static var touristPointDelete = 'http://localhost:8081/api/mera_thar/city/tourist-point/delete';
+  static var touristPointList = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/tourist-point/list';
+  static var touristPointGet = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/tourist-point/get';
+  static var touristPointGetWithCityName = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/tourist-point/get/city-name';
+  static var touristPointAdd = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/tourist-point/add';
+  static var touristPointUpdate = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/tourist-point/update';
+  static var touristPointDelete = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/tourist-point/delete';
 
   // VEHICLES ENDPOINTS
-  static var vehicleList = 'http://localhost:8081/api/mera_thar/city/vehicle/list';
-  static var vehicleGet = 'http://localhost:8081/api/mera_thar/city/vehicle/get';
-  static var vehicleGetWithCityName = 'http://localhost:8081/api/mera_thar/city/vehicle/get/city-name';
-  static var vehicleAdd = 'http://localhost:8081/api/mera_thar/city/vehicle/add';
-  static var vehicleUpdate = 'http://localhost:8081/api/mera_thar/city/vehicle/update';
-  static var vehicleDelete = 'http://localhost:8081/api/mera_thar/city/vehicle/delete';
+  static var vehicleList = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/vehicle/list';
+  static var vehicleGet = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/vehicle/get';
+  static var vehicleGetWithCityName = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/vehicle/get/city-name';
+  static var vehicleAdd = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/vehicle/add';
+  static var vehicleUpdate = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/vehicle/update';
+  static var vehicleDelete = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/vehicle/delete';
 
   // HOTEL ENDPOINTS
-  static var hotelList = 'http://localhost:8081/api/mera_thar/city/hotel/list';
-  static var hotelGet = 'http://localhost:8081/api/mera_thar/city/hotel/get';
-  static var hotelAdd = 'http://localhost:8081/api/mera_thar/city/hotel/add';
-  static var hotelUpdate = 'http://localhost:8081/api/mera_thar/city/hotel/update';
-  static var hotelDelete = 'http://localhost:8081/api/mera_thar/city/hotel/delete';
-  static var hotelGetWithCityName = 'http://localhost:8081/api/mera_thar/city/hotel/get/city-name';
+  static var hotelList = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/hotel/list';
+  static var hotelGet = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/hotel/get';
+  static var hotelAdd = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/hotel/add';
+  static var hotelUpdate = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/hotel/update';
+  static var hotelDelete = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/hotel/delete';
+  static var hotelGetWithCityName = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/hotel/get/city-name';
 
     // HOTEL ENDPOINTS
-  static var restaurantList = 'http://localhost:8081/api/mera_thar/city/restaurant/list';
-  static var restaurantGet = 'http://localhost:8081/api/mera_thar/city/restaurant/get';
-  static var restaurantAdd = 'http://localhost:8081/api/mera_thar/city/restaurant/add';
-  static var restaurantUpdate = 'http://localhost:8081/api/mera_thar/city/restaurant/update';
-  static var restaurantDelete = 'http://localhost:8081/api/mera_thar/city/restaurant/delete';
-  static var restaurantGetWithCityName = 'http://localhost:8081/api/mera_thar/city/restaurant/get/city-name';
+  static var restaurantList = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/restaurant/list';
+  static var restaurantGet = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/restaurant/get';
+  static var restaurantAdd = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/restaurant/add';
+  static var restaurantUpdate = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/restaurant/update';
+  static var restaurantDelete = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/restaurant/delete';
+  static var restaurantGetWithCityName = 'https://meratharbackend-production.up.railway.app/api/mera_thar/city/restaurant/get/city-name';
 
 }
