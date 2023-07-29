@@ -145,7 +145,7 @@ class AuthenticationService {
         SnackPosition.TOP,
       );
 
-      Get.toNamed("/loginView");
+      Get.toNamed("/registerView");
 
       return User(
         firstName: userJson['firstName'],
@@ -173,7 +173,6 @@ class AuthenticationService {
       sp.setString(Utils.USER_LASTNAME, userJson['lastName']);
       sp.setString(Utils.USER_EMAIL, userJson['email']);
       sp.setString(Utils.USER_GENDER, userJson['gender']);
-      
       Get.toNamed("/loginView");
 
       return User(
