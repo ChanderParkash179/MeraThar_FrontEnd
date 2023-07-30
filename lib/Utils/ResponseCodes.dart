@@ -31,7 +31,7 @@ class ResponseCodes {
   static var MSG_USER_PARAMETERS_UNAVAILABLE = "Some Parameters are Unavailable";
   static var MSG_USER_PARAMETERS_INVALID = "Input Fields are Empty or Invalid";
   static var MSG_USER_EMAIL_POLICY = "Provided Email doesn't meet the policy";
-  static var MSG_USER_PASSWORD_POLICY = "Provided Password doesn't meet the policy";
+  static var MSG_USER_PASSWORD_POLICY = "Password Length should be more 6 and 1 Capital, 1 Small & 1 Number";
   static var MSG_USER_LOGOUT_SUCCESSFULLY = "User is Logout Successfully!";
   static var MSG_USER_FOUND_SUCCESSFULLY = "Requested User Found Successfully!";
 
