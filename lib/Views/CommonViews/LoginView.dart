@@ -70,26 +70,6 @@ class _LoginViewState extends State<LoginView> {
                     ],
                   ),
                   CommonWidgets().verticalSize(Utils.size_10),
-                  GestureDetector(
-                    onTap: () {
-                      Get.defaultDialog(
-                          title: Utils.forgotPassword,
-                          titlePadding: EdgeInsets.symmetric(
-                              horizontal: Utils.size_10,
-                              vertical: Utils.size_10),
-                          backgroundColor: Color(Utils.primaryColor),
-                          middleTextStyle: TextStyle(fontSize: Utils.size_16),
-                          middleText: 'I am dialogGetx');
-                    },
-                    child: Text(
-                      Utils.forgotPassword,
-                      style: TextStyle(
-                        color: Color(Utils.primaryColor),
-                        fontSize: Utils.size_18,
-                      ),
-                    ),
-                  ),
-                  CommonWidgets().verticalSize(Utils.size_10),
                   ButtonWidget(
                     onTap: () async {
                       authenticationService.login(
