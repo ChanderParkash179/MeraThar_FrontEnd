@@ -22,6 +22,8 @@ class Utils {
   static var registerViewSlogan = 'Welcome on your Onboarding!';
   static var signInWithGoogle = 'Sign in with Google';
 
+  static var deleteUserAccountMsg = 'Delete Your Account!';
+
   static var all = 'Users';
   static var add = 'Add';
   static var get = 'Get';
@@ -155,6 +157,8 @@ class Utils {
   static var SUCCESS = 'SUCCESS';
   static var REGISTER = 'REGISTER';
   static var LOGIN = 'LOGIN';
+  static var SOMETHING_WENT_WRONG = 'SOMETHING WENT WRONG';
+  static var DELETED = 'DELETE';
   static var LOGOUT = 'LOGOUT';
   static var GOOGLE = 'GOOGLE';
   static var EMAIL = 'EMAIL';

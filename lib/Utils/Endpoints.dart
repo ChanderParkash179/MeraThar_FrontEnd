@@ -5,6 +5,7 @@ class Endpoints {
   static var login = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/login';
   static var register = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/register';
   static var email = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/email';
+  static var delete = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/delete';
   static var forgotPassword = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/forgot';
   static var socialUser = 'https://meratharbackend-production.up.railway.app/api/mera_thar/user/social';
 

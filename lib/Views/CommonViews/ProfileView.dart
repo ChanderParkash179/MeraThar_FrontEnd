@@ -96,6 +96,33 @@ class _ProfileViewState extends State<ProfileView> {
                       ? FontAwesomeIcons.mars
                       : FontAwesomeIcons.venus),
               CommonWidgets().verticalSize(Utils.size_10),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    Future.delayed(Duration(seconds: Utils.size_02.toInt()),
+                        () {
+                      userService.deleteUser(userEmail!);
+                      Get.toNamed("/loginView");
+                    });
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Utils.size_04),
+                    color: Color(Utils.colorWhite),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(Utils.size_12),
+                    child: Text(
+                      Utils.deleteUserAccountMsg,
+                      style: TextStyle(
+                        color: Color(Utils.colorRed),
+                        fontSize: Utils.size_14,
+                      ),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),

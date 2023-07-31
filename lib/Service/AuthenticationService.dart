@@ -173,7 +173,7 @@ class AuthenticationService {
       sp.setString(Utils.USER_LASTNAME, userJson['lastName']);
       sp.setString(Utils.USER_EMAIL, userJson['email']);
       sp.setString(Utils.USER_GENDER, userJson['gender']);
-      
+
       Get.toNamed("/loginView");
 
       return User(
@@ -210,7 +210,7 @@ class AuthenticationService {
       _isAuthenticated = false;
 
       SnakeBarWidget().snakeBar(
-        Utils.REGISTER,
+        Utils.SOMETHING_WENT_WRONG,
         ResponseCodes.MSG_SOMETHING_WENT_WRONG,
         FaIcon(
           FontAwesomeIcons.circleExclamation,
@@ -421,7 +421,7 @@ class AuthenticationService {
       _isAuthenticated = false;
 
       SnakeBarWidget().snakeBar(
-        Utils.LOGIN,
+        Utils.SOMETHING_WENT_WRONG,
         ResponseCodes.MSG_SOMETHING_WENT_WRONG,
         FaIcon(
           FontAwesomeIcons.circleExclamation,
