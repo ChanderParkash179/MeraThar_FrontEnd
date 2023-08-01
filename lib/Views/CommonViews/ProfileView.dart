@@ -109,7 +109,7 @@ class _ProfileViewState extends State<ProfileView> {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Utils.size_04),
-                    color: Color(Utils.colorWhite),
+                    color: Color(Utils.primaryColor),
                   ),
                   child: Padding(
                     padding: EdgeInsets.all(Utils.size_12),
