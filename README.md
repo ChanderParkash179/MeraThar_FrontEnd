@@ -4,7 +4,7 @@ Welcome to the Mera Thar Frontend Project! This project is built using Flutter a
 
 ## Project Overview
 
-Mera Thar is an initiative to promote tourism in Tharparkar, Pakistan. The backend of the project is responsible for managing and serving view of the application built with Flutter. This repository contains the frontend code that handles view, design, UI and communication with the backend.
+Mera Thar is an initiative to promote tourism in Tharparkar, Pakistan. The frontend of the project is responsible for managing and serving view of the application built with Flutter. This repository contains the frontend code that handles view, design, UI and communication with the backend.
 
 ## Features
 
